@@ -1,0 +1,297 @@
+<header>
+    <div class="modal fade" id="search-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="input-group">
+                    <input type="text" class="form-control-lg border-0 flex-grow-1" placeholder="Search...">
+                    <button class="btn" type="button" data-bs-dismiss="modal"><i class="bi-x-lg"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%
+    let total = 0;
+    if (firstName) {
+    %>
+        <div class="modal fade" id="cart-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header border-secondary">
+                        <h5 class="modal-title">Shopping Cart</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <% if (!productsInCart.length) { %>
+                            <br>
+                            <h4>The shopping cart is empty :(</h4>
+                            <br>
+                        <% } else { %>
+                            <%
+                            for (let i = 0; i < productsInCart.length; i++) {
+                                total += productsInCart[i].sum;
+                            %>
+                            <div class="d-flex">
+                                <img width="140" src="/img/products/<%= productsInCart[i].image %>" alt=""
+                                     class="align-self-start me-1">
+                                <div class="d-flex flex-column justify-content-between w-100">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <h5><%= productsInCart[i].name %></h5>
+                                            <small class="bg-secondary px-1">ART:<%= productsInCart[i].art %></small>
+                                        </div>
+                                        <button class="btn text-danger text-opacity-75 fs-5 lh-0 p-0 ps-1 pb-1"
+                                                type="button">
+                                            <i class="bi-trash3"></i>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-baseline  mt-2 mb-sm-2">
+                                        <button class="btn btn-outline-primary lh-0 p-2 disabled">
+                                            <i class="bi-dash-lg"></i>
+                                        </button>
+                                        <div class="mx-2 mx-sm-3 fs-4"><%= productsInCart[i].amount %></div>
+                                        <button class="btn btn-outline-primary lh-0 p-2">
+                                            <i class="bi-plus-lg"></i>
+                                        </button>
+                                        <div class="fs-4 ms-3 ms-sm-4">$ <%= productsInCart[i].sum %></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%- (i !== productsInCart.length - 1) ? "<hr>" : "" %>
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <div class="modal-footer border-secondary pt-1">
+                        <div class="d-flex flex-column w-100">
+                            <div class="d-flex justify-content-between fs-4">
+                                <span>Total:</span>
+                                <span>$ <%= total %></span>
+                            </div>
+                            <a href="/user/create-order"
+                               class="btn btn-primary fs-5 fw-bold mt-2 <%= productsInCart.length ? "" : "disabled" %>">
+                                Create order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="modal fade" id="sign-up-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header border-secondary">
+                        <h5 class="modal-title">Sign Up</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/sign-up" method="post" class="needs-validation" id="sign-up-form" novalidate>
+                            <div class="row gy-2">
+                                <div class="col-6">
+                                    <label for="firstname-input">First Name:<span
+                                                class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" id="firstname-input" placeholder="Tim"
+                                           name="firstName" required>
+                                    <div class="invalid-feedback">Please enter your first name.</div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lastname-input">Last Name:<span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" id="lastname-input" placeholder="Cook"
+                                           name="lastName" required>
+                                    <div class="invalid-feedback">Please enter your last name.</div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="phone-input">Phone:<span class="text-danger">*</span></label>
+                                    <input class="form-control" type="tel" id="phone-input" required
+                                           name="phone" placeholder="+777123123123">
+                                    <div class="invalid-feedback">Please enter your phone.</div>
+                                </div>
+                            </div>
+                            <div class="row gy-2 mt-1">
+                                <div class="col-6">
+                                    <label for="pw-input">Password:<span class="text-danger">*</span></label>
+                                    <input class="form-control" type="password" id="pw-input"
+                                           name="password" placeholder="*********" required>
+                                    <div class="invalid-feedback">Please enter your password.</div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="pw2-input">Repeat password:<span
+                                                class="text-danger">*</span></label>
+                                    <input class="form-control" type="password" id="pw2-input"
+                                           name="password2" placeholder="*********" required>
+                                    <div class="invalid-feedback">Passwords don't match.</div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100 fw-bold fs-5 mt-2">Register
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+                        <h4 class="text-center">Or continue with:</h4>
+                        <form action="">
+                            <a href="#" class="btn d-block bg-black fs-5 text-white mb-3" style="">
+                                <span class="bi-apple"></span> Apple ID
+                            </a>
+                            <a href="#" class="btn d-block btn-light fs-5 fw-bold mb-3" style="">
+                                <span class="bi-google" style="color: #4285F4"></span><span
+                                        style="color: #DB4437">o</span><span style="color: #F4B400">o</span><span
+                                        style="color: #4285F4">g</span><span style="color: #0F9D58">l</span><span
+                                        style="color: #DB4437">e</span>
+                            </a>
+                            <a href="#" class="btn d-block fs-5 text-white mb-3" style="background: #1DA1F2;">
+                                <span class="bi-twitter"></span> Twitter
+                            </a>
+                            <a href="#" class="btn d-block fs-5 text-white mb-3" style="background: #3b5998;">
+                                <span class="bi-facebook"></span> Facebook
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-decoration-none fs-3 " href="/">
+                <span class="text-primary fw-bold">i</span>Gadgets
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <hr class="d-lg-none text-light my-1">
+                <div class="d-flex flex-column-reverse justify-content-between flex-lg-row w-100">
+                    <ul class="navbar-nav mt-md-2 mt-lg-0 align-self-start flex-md-row justify-content-md-between">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">iPhone</a>
+                            <ul class="dropdown-menu dropdown-menu-dark rounded-3 position-absolute">
+                                <li><a class="dropdown-item" href="/iphones">All models</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/iphones?model=13-pro-max">iPhone 13 Pro Max</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=13-pro">iPhone 13 Pro</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=13">iPhone 13</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=13-mini">iPhone 13 Mini</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=12-pro-max">iPhone 12 Pro Max</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=12-pro">iPhone 12 Pro</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=12">iPhone 12</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=12-mini">iPhone 12 Mini</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=11">iPhone 11</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=se-2020">iPhone SE 2020</a></li>
+                                <li><a class="dropdown-item" href="/iphones?model=se-2022">iPhone SE 2022</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">iPad</a>
+                            <ul class="dropdown-menu dropdown-menu-dark rounded-3 position-absolute">
+                                <li><a class="dropdown-item" href="#">All models</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Apple iPad</a></li>
+                                <li><a class="dropdown-item" href="#">Apple iPad Air</a></li>
+                                <li><a class="dropdown-item" href="#">Apple iPad Pro</a></li>
+                                <li><a class="dropdown-item" href="#">Apple iPad Mini</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Mac</a>
+                            <ul class="dropdown-menu dropdown-menu-dark rounded-3 position-absolute">
+                                <li><a class="dropdown-item" href="#">All models</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">MacBook Pro</a></li>
+                                <li><a class="dropdown-item" href="#">MacBook Air</a></li>
+                                <li><a class="dropdown-item" href="#">Mac mini</a></li>
+                                <li><a class="dropdown-item" href="#">iMac</a></li>
+                                <li><a class="dropdown-item" href="#">Apple Mac Studio</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Apple Watch</a>
+                            <ul class="dropdown-menu dropdown-menu-dark rounded-3 position-absolute">
+                                <li><a class="dropdown-item" href="#">All models</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Apple Watch Series 7</a></li>
+                                <li><a class="dropdown-item" href="#">Apple Watch SE</a></li>
+                                <li><a class="dropdown-item" href="#">Apple Watch Series 6</a></li>
+                                <li><a class="dropdown-item" href="#">Apple Watch Series 3</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">AirPods</a>
+                            <ul class="dropdown-menu dropdown-menu-dark rounded-3 position-absolute">
+                                <li><a class="dropdown-item" href="#">All models</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Apple AirPods</a></li>
+                                <li><a class="dropdown-item" href="#">Apple AirPods Pro</a></li>
+                                <li><a class="dropdown-item" href="#">Apple AirPods Max</a></li>
+                                <li><a class="dropdown-item" href="#">Colored AirPods</a></li>
+                                <li><a class="dropdown-item" href="#">AirPods Equipment</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Accessories</a>
+                            <ul class="dropdown-menu dropdown-menu-dark rounded-3 position-absolute">
+                                <li><a class="dropdown-item" href="#">Accessories for iPhone</a></li>
+                                <li><a class="dropdown-item" href="#">Accessories for iPad</a></li>
+                                <li><a class="dropdown-item" href="#">Accessories for Mac</a></li>
+                                <li><a class="dropdown-item" href="#">Accessories for AirPods</a></li>
+                                <li><a class="dropdown-item" href="#">Accessories for Watch</a></li>
+                            </ul>
+
+                        </li>
+                    </ul>
+
+                    <div class="d-flex justify-content-center align-items-center">
+                        <a href="#search-modal" class="text-primary mx-2 text-decoration-none" data-bs-toggle="modal">
+                            <i class="bi-search fs-4"></i>
+                        </a>
+                        <a href="tel:0-800-707-07-07" class="link-primary mx-2">
+                            <i class="bi-telephone fs-4"></i>
+                        </a>
+                        <% if (firstName) { %>
+                            <a href="#cart-modal" class="text-primary mx-2 position-relative" data-bs-toggle="modal">
+                                <i class="bi-cart fs-4"></i>
+                                <span class="position-absolute top-50 start-50 translate-y badge rounded-pill bg-light text-dark"><%= productsInCart.length %></span>
+                            </a>
+                            <div class="dropdown">
+                                <button type="button" data-bs-toggle="dropdown"
+                                        class="btn btn-sm rounded-3 btn-outline-primary fs-5 ms-3 dropdown-toggle bi-person-fill">
+                                    <%= firstName %>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-dark mt-1 py-1">
+                                    <li><a href="/user/orders" class="dropdown-item"><i class="bi-bag-check"></i> My orders</a>
+                                    </li>
+                                    <li><a href="/user/settings" class="dropdown-item"><i class="bi-sliders"></i> Settings</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider my-1">
+                                    </li>
+                                    <li><a href="/log-out" class="dropdown-item text-danger">
+                                            <i class="bi-box-arrow-right"></i> Log Out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        <% } else { %>
+                            <a href="#" class="link-primary mx-2"><i class="bi-cart fs-4"></i></a>
+                            <button data-bs-toggle="modal" data-bs-target="#sign-up-modal"
+                                    class="btn btn-outline-primary mx-2">Sign Up
+                            </button>
+                            <button id="log-in-btn-popover" class="btn btn-primary ms-2" data-bs-toggle="popover">
+                                Log In
+                            </button>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

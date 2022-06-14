@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head", {title: title}); %>
+<body class="d-flex flex-column bg-black text-light">
+<%- include("partials/header"); %>
+
+<main class="flex-grow-1 container my-3 my-lg-4 text-light">
+    <div class="row g-2 g-lg-3">
+        <nav class="col-12 col-lg-9 col-xl-9 order-0">
+            <ol class="breadcrumb p-2 mb-0">
+                <li class="breadcrumb-item"><a href="/" class="link-primary text-decoration-none">
+                        <i class="bi-house-door"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item text-light">Apple iPhone</li>
+            </ol>
+        </nav>
+        <form class="col-12 col-lg-3 order-lg-2" method="get" id="filter">
+            <div class="accordion collapse show" id="filter-accordion">
+                <div class="accordion-item bg-dark mb-2 mb-lg-3 bg-dark">
+                    <h2 class="accordion-header">
+                        <button type="button" data-bs-toggle="collapse" data-bs-target="#model-panel"
+                                class="accordion-button text-light fw-bold"> Model
+                        </button>
+                    </h2>
+                    <div id="model-panel" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="13-pro-max" id="iphone-13-pro-max"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("13-pro-max") ? "" : "disabled") %>
+                                        <%= (models.includes("13-pro-max") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-13-pro-max">iPhone 13 Pro Max</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="13-pro" id="iphone-13-pro"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("13-pro") ? "" : "disabled") %>
+                                        <%= (models.includes("13-pro") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-13-pro">iPhone 13 Pro</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="13" id="iphone-13"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("13") ? "" : "disabled") %>
+                                        <%= (models.includes("13") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-13">iPhone 13</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="13-mini" id="iphone-13-mini"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("13-mini") ? "" : "disabled") %>
+                                        <%= (models.includes("13-mini") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-13-mini">iPhone 13 Mini</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="12-pro-max" id="iphone-12-pro-max"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("12-pro-max") ? "" : "disabled") %>
+                                        <%= (models.includes("12-pro-max") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-12-pro-max">iPhone 12 Pro Max</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="12-pro" id="iphone-12-pro"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("12-pro") ? "" : "disabled") %>
+                                        <%= (models.includes("12-pro") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-12-pro">iPhone 12 Pro</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="12" id="iphone-12"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("12") ? "" : "disabled") %>
+                                        <%= (models.includes("12") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-12">iPhone 12</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="12-mini" id="iphone-12-mini"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("12-mini") ? "" : "disabled") %>
+                                        <%= (models.includes("12-mini") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-12-mini">iPhone 12 Mini</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="11" id="iphone-11"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("11") ? "" : "disabled") %>
+                                        <%= (models.includes("11") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-11">iPhone 11</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="xr" id="iphone-xr"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("xr") ? "" : "disabled") %>
+                                        <%= (models.includes("xr") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-xr">iPhone XR</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="se-2022" id="iphone-se-2022"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("se-2022") ? "" : "disabled") %>
+                                        <%= (models.includes("se-2022") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-se-2022">iPhone SE 2022</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="model" value="se-2020" id="iphone-se-2020"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredModels.includes("se-2020") ? "" : "disabled") %>
+                                        <%= (models.includes("se-2020") ? "checked" : "") %>>
+                                <label class="form-check-label" for="iphone-se-2020">iPhone SE 2020</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-dark mb-2 mb-lg-3 bg-dark">
+                    <h2 class="accordion-header">
+                        <button type="button" data-bs-toggle="collapse" data-bs-target="#memory-panel"
+                                class="accordion-button collapsed text-light fw-bold"> Memory
+                        </button>
+                    </h2>
+                    <div id="memory-panel" class="accordion-collapse collapse <%= (memories.length ? "show" : "") %>">
+                        <div class="accordion-body">
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="memories" value="1024" id="1024gb"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredMemories.includes("1024")) ? "" : "disabled" %>
+                                        <%= (memories.includes("1024") ? "checked" : "") %>>
+                                <label class="form-check-label" for="1024gb">1 TB</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="memories" value="512" id="512gb"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredMemories.includes("512")) ? "" : "disabled" %>
+                                        <%= (memories.includes("512") ? "checked" : "") %>>
+                                <label class="form-check-label" for="512gb">512 GB</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="memories" value="256" id="256gb"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredMemories.includes("256")) ? "" : "disabled" %>
+                                        <%= (memories.includes("256") ? "checked" : "") %>>
+                                <label class="form-check-label" for="256gb">256 GB</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="memories" value="128" id="128gb"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredMemories.includes("128")) ? "" : "disabled" %>
+                                        <%= (memories.includes("128") ? "checked" : "") %>>
+                                <label class="form-check-label" for="128gb">128 GB</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="memories" value="64" id="64gb"
+                                       class="form-check-input rounded-1 me-3"
+                                        <%= (filteredMemories.includes("64")) ? "" : "disabled" %>
+                                        <%= (memories.includes("64") ? "checked" : "") %>>
+                                <label class="form-check-label" for="64gb">64 GB</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-dark mb-2 mb-lg-3 bg-dark">
+                    <h2 class="accordion-header">
+                        <button type="button" data-bs-toggle="collapse" data-bs-target="#color-panel"
+                                class="accordion-button collapsed text-light fw-bold"> Color
+                        </button>
+                    </h2>
+                    <div id="color-panel" class="accordion-collapse collapse <%= (colors.length ? "show" : "") %>">
+                        <div class="accordion-body">
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="alpine-green" id="alpine-green"
+                                       style="background-color: #00493C"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("alpine-green")) ? "" : "disabled" %>
+                                        <%= (colors.includes("alpine-green") ? "checked" : "") %>>
+                                <label class="form-check-label" for="alpine-green">Alpine Green</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="black" id="black"
+                                       style="background-color: #000000"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("black")) ? "" : "disabled" %>
+                                        <%= (colors.includes("black") ? "checked" : "") %>>
+                                <label class="form-check-label" for="black">Black</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="blue" id="blue"
+                                       style="background-color: #0000ff"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("blue")) ? "" : "disabled" %>
+                                        <%= (colors.includes("blue") ? "checked" : "") %>>
+                                <label class="form-check-label" for="blue">Blue</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="gold" id="gold"
+                                       style="background-color: #f4d2b9"
+                                       class="form-check-input rounded-1 me-3 border-secondary check-invert"
+                                        <%= (filteredColors.includes("gold")) ? "" : "disabled" %>
+                                        <%= (colors.includes("gold") ? "checked" : "") %>>
+                                <label class="form-check-label" for="gold">Gold</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="graphite" id="graphite"
+                                       style="background-color: #595955"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("graphite")) ? "" : "disabled" %>
+                                        <%= (colors.includes("graphite") ? "checked" : "") %>>
+                                <label class="form-check-label" for="graphite">Graphite</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="green" id="green"
+                                       style="background-color: #4bc062"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("green")) ? "" : "disabled" %>
+                                        <%= (colors.includes("green") ? "checked" : "") %>>
+                                <label class="form-check-label" for="green">Green</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="midnight" id="midnight"
+                                       style="background-color: #0d1b3a"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("midnight")) ? "" : "disabled" %>
+                                        <%= (colors.includes("midnight") ? "checked" : "") %>>
+                                <label class="form-check-label" for="midnight">Midnight</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="pacific-blue" id="pacific-blue"
+                                       style="background-color: #4a5a68"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("pacific-blue")) ? "" : "disabled" %>
+                                        <%= (colors.includes("pacific-blue") ? "checked" : "") %>>
+                                <label class="form-check-label" for="pacific-blue">Pacific Blue</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="pink" id="pink"
+                                       style="background-color: #FA8072"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("pink")) ? "" : "disabled" %>
+                                        <%= (colors.includes("pink") ? "checked" : "") %>>
+                                <label class="form-check-label" for="pink">Pink</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="purple" id="purple"
+                                       style="background-color: #bdb2e1"
+                                       class="form-check-input rounded-1 me-3 border-secondary check-invert"
+                                        <%= (filteredColors.includes("purple")) ? "" : "disabled" %>
+                                        <%= (colors.includes("purple") ? "checked" : "") %>>
+                                <label class="form-check-label" for="purple">Purple</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="red" id="red"
+                                       style="background-color: #ff0000"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("red")) ? "" : "disabled" %>
+                                        <%= (colors.includes("red") ? "checked" : "") %>>
+                                <label class="form-check-label" for="red">Red</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="sierra-blue" id="sierra-blue"
+                                       style="background-color: #51A0D5"
+                                       class="form-check-input rounded-1 me-3 border"
+                                        <%= (filteredColors.includes("sierra-blue")) ? "" : "disabled" %>
+                                        <%= (colors.includes("sierra-blue") ? "checked" : "") %>>
+                                <label class="form-check-label" for="sierra-blue">Sierra Blue</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="silver" id="silver"
+                                       style="background-color: #e9e9e1"
+                                       class="form-check-input rounded-1 me-3 border-secondary check-invert"
+                                        <%= (filteredColors.includes("silver")) ? "" : "disabled" %>
+                                        <%= (colors.includes("silver") ? "checked" : "") %>>
+                                <label class="form-check-label" for="silver">Silver</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="starlight" id="starlight"
+                                       style="background-color: #ffffff"
+                                       class="form-check-input rounded-1 me-3 border-secondary check-invert"
+                                        <%= (filteredColors.includes("starlight")) ? "" : "disabled" %>
+                                        <%= (colors.includes("starlight") ? "checked" : "") %>>
+                                <label class="form-check-label" for="starlight">Starlight</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input type="checkbox" name="color" value="white" id="white"
+                                       style="background-color: #ffffff"
+                                       class="form-check-input rounded-1 me-3 border-secondary check-invert"
+                                        <%= (filteredColors.includes("white")) ? "" : "disabled" %>
+                                        <%= (colors.includes("white") ? "checked" : "") %>>
+                                <label class="form-check-label" for="white">White</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/iphones/<%= sort %>" type="button" class="btn btn-dark rounded-1 w-100 bi-x-lg">
+                    Clear Filter
+                </a>
+            </div>
+            <input type="submit" hidden>
+        </form>
+        <div class="col-12 col-lg-3 col-xl-3 order-lg-1">
+            <div class="dropdown">
+                <button class="btn bg-dark rounded-1 text-light w-100 dropdown-toggle bi-arrow-down-up shadow-none p-2 border-0 text-lg-end pe-lg-0"
+                        type="button" data-bs-toggle="dropdown" id="sort-btn"> Sort by:
+                    <span class="text-primary">
+                        <%= (sort === "newest" ? "Newest" : "") %>
+                        <%= (sort === "top" ? "Top Rating" : "") %>
+                        <%= (sort === "asc" ? "Price: Low - High" : "") %>
+                        <%= (sort === "desc" ? "Price: High - Low" : "") %>
+                    </span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end rounded-1">
+                    <li><a class="btn dropdown-item px-4 bi-calendar-range <%= (sort === "newest" ? "active" : "") %>"
+                           href="/iphones/newest/?<%= queryString %>"> Newest</a></li>
+                    <li><a class="btn dropdown-item px-4 bi-star-fill <%= (sort === "top" ? "active" : "") %>"
+                           href="/iphones/top/?<%= queryString %>"> Top Rating</a></li>
+                    <li><a class="btn dropdown-item px-4 bi-arrow-up-right <%= (sort === "asc" ? "active" : "") %>"
+                           href="/iphones/asc/?<%= queryString %>"> Price: Low - High</a></li>
+                    <li><a class="btn dropdown-item px-4 bi-arrow-down-right <%= (sort === "desc" ? "active" : "") %>"
+                           href="/iphones/desc/?<%= queryString %>"> Price: High - Low</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-lg-9 order-lg-3">
+            <div class="row g-2 g-lg-3 d-flex flex-wrap align-items-start">
+                <%
+                if (products.length) {
+                for (let i = (page - 1) * 11; i < products.length; i++) {
+                %>
+                    <div class="col-6 col-sm-4 col-xl-3">
+                        <div class="card border-0 bg-dark position-relative card-transition">
+                            <img src="/img/products/<%= products[i].img %>" class="card-img-top" alt="">
+                            <div class="card-body p-2">
+                                <h6 class="card-title text-center mb-2"><%= products[i].name %></h6>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span class="fs-5 text-center w-50">$ <%= products[i].price %></span>
+                                    <a href="<%= products[i].productPageHref %>"
+                                       class="btn btn-primary d-block w-50 fw-bold stretched-link">Buy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%
+                }
+                } else {
+                %>
+                    <h4>No products found matching the filter.</h4>
+                <% } %>
+            </div>
+            <% if (products.length) { %>
+                <div class="row mt-2 mt-lg-3">
+                    <nav>
+                        <ul class="pagination bg-dark rounded-1 justify-content-center mb-0">
+                            <li class="page-item <%= (page === 1 ? "disabled" : "") %>">
+                                <a class="page-link"
+                                   href="/iphones<%= (sort ? `/${sort}/` : "") + `?${queryString}&page=${page - 1}` %>">Previous</a>
+                            </li>
+                            <% for (let i = 1; i <= pages; i++) { %>
+                                <li class="page-item <%= (page === i ? "active" : "") %>">
+                                    <a class="page-link rounded-1"
+                                       href="/iphones<%= (sort ? `/${sort}/` : "") + `?${queryString}&page=${i}` %>"><%= i %></a>
+                                </li>
+                            <% } %>
+                            <li class="page-item <%= (pages - page === 0 ? "disabled" : "") %>">
+                                <a class="page-link rounded-1"
+                                   href="/iphones<%= (sort ? `/${sort}/` : "") + `?${queryString}&page=${page + 1}` %>">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</main>
+
+<%- include("partials/footer"); %>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<% if (!firstName) { %>
+    <script src="/js/sign-up-form-validation.js"></script>
+    <script src="/js/log-in-popover.js"></script>
+<% } %>
+</body>
+</html>

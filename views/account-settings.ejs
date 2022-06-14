@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head", {title: title}); %>
+<body class="d-flex flex-column bg-black text-light">
+<%- include("partials/header"); %>
+
+<main class="container my-3 my-lg-4 flex-grow-1 text-light">
+    <div class="row g-3">
+        <div class="col-12 col-sm-5 col-lg-3">
+            <nav class="nav flex-column bg-dark rounded-1 p-2 sticky-sm-top" style="top: 80px">
+                <h5 class="text-center m-0 p-2 border-bottom bi-person-fill"> <%= firstName + " " + lastName %></h5>
+                <a class="nav-link link-light bi-bag-check" href="/user/orders"> My orders</a>
+                <a class="nav-link link-light bi-sliders fw-bold"> Account settings</a>
+                <a class="nav-link link-danger bi-box-arrow-right" href="/log-out"> Log Out</a>
+            </nav>
+        </div>
+        <div class="col-12 col-sm-7 col-lg-5">
+            <form action="/user/edit" method="post" class="rounded-1 bg-dark p-3 needs-validation" novalidate>
+                <div class="mb-2 col">
+                    <label for="firstname-input">First Name:<span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" id="firstname-input"
+                           value="<%= firstName %>" name="newFirstName" required>
+                    <div class="invalid-feedback">First name cannot be empty.</div>
+                </div>
+                <div class="mb-2 col">
+                    <label for="lastname-input">Last Name:<span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" id="lastname-input"
+                           value="<%= lastName %>" name="newLastName" required>
+                    <div class="invalid-feedback">Last name cannot be empty.</div>
+                </div>
+                <div class="mb-2">
+                    <label for="phone-input">Phone:<span class="text-danger">*</span></label>
+                    <input class="form-control" type="tel" id="phone-input"
+                           value="<%= phone %>" name="newPhone" required>
+                    <div class="invalid-feedback">Phone number cannot be empty.</div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2 w-100 fw-bold">Save</button>
+            </form>
+        </div>
+        <div class="col-12 col-sm-7 offset-sm-5 col-lg-4 offset-lg-0">
+            <form action="/user/change-password" method="post" class="rounded-1 bg-dark p-3 needs-validation" novalidate>
+                <div class="mb-2">
+                    <label for="old-pw-input">Old password:<span class="text-danger">*</span></label>
+                    <input class="form-control" type="password" id="old-pw-input" placeholder="*********"
+                           name="oldPassword" required>
+                    <div class="invalid-feedback">Please enter your old password.</div>
+                </div>
+                <div class="mb-2">
+                    <label for="pw-input">New password:<span class="text-danger">*</span></label>
+                    <input class="form-control" type="password" id="pw-input" placeholder="*********"
+                           name="newPassword" required>
+                    <div class="invalid-feedback">Please enter your new password.</div>
+                </div>
+                <div class="mb-2">
+                    <label for="pw2-input">Repeat password:<span class="text-danger">*</span></label>
+                    <input class="form-control" type="password" id="pw2-input" placeholder="*********"
+                           name="newPassword2" required>
+                    <div class="invalid-feedback">Passwords don't match.</div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2 w-100 fw-bold">Change password</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include("partials/footer"); %>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<% if (!firstName) { %>
+    <script src="/js/sign-up-form-validation.js"></script>
+    <script src="/js/log-in-popover.js"></script>
+<% } %>
+<script>
+    Array.from(document.querySelectorAll("form.needs-validation"))
+        .forEach(form => form.addEventListener('submit', function (event) {
+            if (!this.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            this.classList.add('was-validated');
+        }, false));
+</script>
+</body>
+</html>

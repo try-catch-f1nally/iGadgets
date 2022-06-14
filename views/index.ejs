@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head", {title: title}); %>
+<body class="d-flex flex-column bg-black text-light">
+<%- include("partials/header"); %>
+
+<main class="my-1 flex-grow-1">
+    <section id="carousel-promo" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carousel-promo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carousel-promo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carousel-promo" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#carousel-promo" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#carousel-promo" data-bs-slide-to="4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/img/carousel-promo/iphone13pro-promo.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="/img/carousel-promo/ipadair-promo.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="/img/carousel-promo/macbook-promo.png" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="/img/carousel-promo/apple-watch-promo.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="/img/carousel-promo/airpods-promo.webp" class="d-block w-100" alt="">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-promo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-promo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </section>
+
+    <section class="container my-5">
+        <h2>Top Rating. The products you love.</h2>
+        <hr class="my-2 my-sm-3">
+        <div class="slick-carousel px-4">
+            <% for (let product of topRatingProducts) { %>
+                <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
+                    <img src="/img/products/<%= product.img %>" class="card-img-top" alt="">
+                    <div class="card-body border-0 d-flex flex-column justify-content-between">
+                        <h6 class="card-title text-center mb-2"><%= product.name %></h6>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <span class="fs-5 text-center w-50">$ <%= product.price %></span>
+                            <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <h2>The latest. Take a look at what’s new, right now.</h2>
+        <hr class="my-2 my-sm-3">
+        <div class="slick-carousel px-4">
+            <% for (let product of latestProducts) { %>
+                <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
+                    <img src="/img/products/<%= product.img %>" class="card-img-top" alt="">
+                    <div class="card-body border-0 d-flex flex-column justify-content-between">
+                        <h6 class="card-title text-center mb-2"><%= product.name %></h6>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <span class="fs-5 text-center w-50">$ <%= product.price %></span>
+                            <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+    </section>
+
+    <article class="container my-5 py-2 fs-5">
+        <h2 class="text-center">Store. The best way to buy the products you love.</h2>
+        <hr class="my-2 my-sm-3">
+        <p>
+            iGadgets &ndash; chain of original Apple technology stores. We have started our journey since 2015. During
+            this time, we have managed to win the trust of thousands of customers. Buying in our online store is as
+            simple, profitable, convenient and safe as possible.
+
+        </p>
+        iGadgets is the perfect place to buy:
+        <ul class="ps-4 mt-1">
+            <li>Flagship smartphones iPhone.</li>
+            <li>Professional tablets iPad.</li>
+            <li>Powerful laptops Mac.</li>
+            <li>Smart wristwatch Apple Watch.</li>
+            <li>Wireless headphones AirPods.</li>
+            <li>Wireless headphones AirPods.</li>
+            <li>Original accessories from Apple.</li>
+        </ul>
+        <p>
+            For the entire range of equipment, we give a guarantee from the manufacturer and from our store.
+        </p>
+    </article>
+</main>
+
+<%- include("partials/footer"); %>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<% if (!firstName) { %>
+    <script src="/js/sign-up-form-validation.js"></script>
+    <script src="/js/log-in-popover.js"></script>
+<% } %>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/slick.min.js"></script>
+<script src="/js/slick-config.js"></script>
+</body>
+</html>
+

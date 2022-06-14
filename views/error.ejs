@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head", {title: title}); %>
+<body class="d-flex flex-column bg-black text-light">
+<%- include("partials/header"); %>
+
+<main class="container flex-grow-1 mt-4 mb-1">
+    <p class="fs-2">Oops, an error has occurred...</p>
+    <hr>
+    <h1 class="text-center bg-dark p-5 fw-bold display-2"><%=title%>
+        <i class="bi-emoji-frown-fill text-primary"></i></h1>
+    <a href="/" class="link-primary fs-4">Go back to Home page.</a>
+</main>
+
+<%- include("partials/footer"); %>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<% if (!firstName) { %>
+    <script src="/js/sign-up-form-validation.js"></script>
+    <script src="/js/log-in-popover.js"></script>
+<% } %>
+</body>
+</html>

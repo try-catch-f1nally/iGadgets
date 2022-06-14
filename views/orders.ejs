@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head", {title: title}); %>
+<body class="d-flex flex-column bg-black text-light">
+<%- include("partials/header"); %>
+
+<main class="container my-3 my-lg-4 flex-grow-1 text-light">
+    <div class="row g-3">
+        <div class="col-12 col-md-4 col-xl-3">
+            <nav class="nav flex-column bg-dark rounded-1 p-2 sticky-md-top" style="top: 80px">
+                <h5 class="text-center m-0 p-2 border-bottom bi-person-fill"> <%= firstName + " " + lastName %></h5>
+                <a class="nav-link link-light bi-bag-check fw-bold"> My orders</a>
+                <a class="nav-link link-light bi-sliders" href="/user/settings"> Account settings</a>
+                <a class="nav-link link-danger bi-box-arrow-right" href="/log-out"> Log Out</a>
+            </nav>
+        </div>
+        <div class="col-12 col-md-8 col-xl-9">
+            <% for (let order of orders) { %>
+                <div class="modal fade" id="order<%= order.number %>">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark text-light">
+                            <div class="modal-header border-secondary">
+                                <h5 class="modal-title">Order #<%= order.number %></h5>
+                                <button type="button" class="btn-close btn-close-white"
+                                        data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="row g-4 modal-body">
+                                <div class="col-12 col-sm-6">
+                                    <h5 class="text-white bi-person"> Recipient</h5>
+                                    <div><%= order.recipient.name %></div>
+                                    <div><%= order.recipient.phone %></div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <h5 class="text-white bi-box-seam"> Delivery</h5>
+                                    <div>"<%= order.delivery.service %>", <%= order.delivery.method %></div>
+                                    <div><%= order.delivery.city %>, Department #<%= order.delivery.department %></div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <h5 class="text-white bi-cash-coin"> Payment</h5>
+                                    <div><%= order.payment %></div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <h5 class="text-white bi-cash-coin"> Status</h5>
+                                    <div><%= order.status %></div>
+                                    <div>
+                                        Waybill: <span class="fw-bold"><%= order.waybill %></span>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <h5 class="text-white bi-bag"> Products</h5>
+                                    <div>
+                                        <% for (let i = 0; i < order.products.length; i++) { %>
+                                            <div class="d-flex">
+                                                <img class="align-self-start me-1" width="140"
+                                                     src="/img/products/<%= order.products[i].img %>"
+                                                     alt="">
+                                                <div class="d-flex flex-column w-100">
+                                                    <div class="mb-1">
+                                                        <a href="#"
+                                                           class="link-light d-block text-decoration-none fs-5">
+                                                            <%= order.products[i].name %>
+                                                        </a>
+                                                        <small class="bg-secondary px-1">ART:<%= order.products[i].art %></small>
+                                                    </div>
+                                                    <div class="fs-6 d-flex justify-content-between">
+                                                        <span>Price:</span>
+                                                        <span>$ <%= order.products[i].price %></span>
+                                                    </div>
+                                                    <div class="fs-6 d-flex justify-content-between">
+                                                        <span>Amount:</span>
+                                                        <span><%= order.products[i].amount %></span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between align-items-baseline">
+                                                        <span>Sum:</span>
+                                                        <span class="fs-5 ">$ <%= order.products[i].sum %></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <%- (i !== order.products.length - 1) ? "<hr>" : "" %>
+                                        <% } %>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-lg btn-outline-light bi-download w-100">
+                                        Download check
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark rounded-1 p-3 fs-5 mb-3">
+                    <div class="row">
+                        <div class="col-6">Order #<%= order.number %></div>
+                        <div class="col-6 d-flex justify-content-between">
+                            <div class="text-muted"><%= order.date %></div>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#order<%= order.number %>"
+                                    class="btn text-primary fs-3 bi-info-circle lh-0 pt-0 pe-0"></button>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 pe-0">
+                            <span class="text-muted fs-6"><%= order.products.length + (order.products.length === 1 ? " product" : " products") %></span>
+                            <div class="d-flex flex-wrap products-images products-images">
+                                <% for (let product of order.products) { %>
+                                    <img src="/img/products/<%= product.img %>" width="70" alt="">
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 d-flex flex-column justify-content-end">
+                            <div class="d-flex justify-content-between align-items-baseline">
+                                <span>Total amount:</span>
+                                <span class="ms-2">$ <%= order.totalAmount %></span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-baseline">
+                                <span>Status:</span>
+                                <% if (order.status === "In transit") { %>
+                                    <span class="badge bg-secondary bi-cursor-fill fs-6 ms-2"> In transit</span>
+                                <% } else if (order.status === "Completed") { %>
+                                    <span class="badge bg-success bi-check2-circle fs-6 ms-2"> Completed</span>
+                                <% } else if (order.status === "Pending dispatch") {%>
+                                    <span class="badge bg-warning bg-opacity-50 bi-box-seam fs-6 ms-2"> Pending dispatch</span>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+</main>
+
+<%- include("partials/footer"); %>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<% if (!firstName) { %>
+    <script src="/js/sign-up-form-validation.js"></script>
+    <script src="/js/log-in-popover.js"></script>
+<% } %>
+
+</body>
+</html>

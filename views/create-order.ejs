@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head", {title: title}); %>
+<body class="d-flex flex-column bg-black text-light">
+<%- include("partials/header"); %>
+
+<main class="container my-3 my-lg-4 flex-grow-1 text-light">
+    <div class="row g-2 g-lg-3">
+        <aside class="col-12 col-lg-5 col-xl-4">
+            <div class="card bg-dark rounded-1">
+                <div class="card-body">
+                    <%
+                    let total = 0;
+                    for (let i = 0; i < productsInCart.length; i++) {
+                        total += productsInCart[i].sum;
+                    %>
+                    <div class="d-flex">
+                        <img class="align-self-start me-1" width="140"
+                             src="/img/products/<%= productsInCart[i].image %>" alt="">
+                        <div class="d-flex flex-column w-100">
+                            <div class="mb-1">
+                                <div class="fs-5"><%= productsInCart[i].name %></div>
+                                <small class="bg-secondary px-1">ART:<%= productsInCart[i].art %></small>
+                            </div>
+                            <div class="fs-6 d-flex justify-content-between">
+                                <span>Price:</span>
+                                <span>$ <%= productsInCart[i].price %></span>
+                            </div>
+                            <div class="fs-6 d-flex justify-content-between">
+                                <span>Amount:</span>
+                                <span><%= productsInCart[i].amount %></span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-baseline">
+                                <span>Sum:</span>
+                                <span class="fs-5 ">$ <%= productsInCart[i].sum %></span>
+                            </div>
+                        </div>
+                    </div>
+                    <%- (i !== productsInCart.length - 1) ? "<hr>" : "" %>
+                    <% } %>
+                </div>
+                <div class="card-footer border-top border-secondary d-flex justify-content-between fs-4">
+                    <div>Total:</div>
+                    <div>$ <%= total %></div>
+                </div>
+            </div>
+        </aside>
+        <div class="col-12 col-lg-7 col-xl-8">
+            <form method="post" action="/user/create-order" class="bg-dark rounded-1 p-3 needs-validation" novalidate>
+                <div class="row gy-1 gx-3 gx-sm-4">
+                    <div class="col-12">
+                        <div class="fs-5">1. Recipient of the order</div>
+                        <hr class="my-2 opacity-50">
+                    </div>
+                    <div class="col-6 col-xl-4">
+                        <label for="firstname-input">First Name:<span class="text-danger">*</span></label>
+                        <input class="form-control bg-light" type="text" id="firstname-input" placeholder="Tim"
+                               value="<%= firstName %>" name="recipientFirstName" required>
+                        <div class="invalid-feedback">Please enter first name.</div>
+                    </div>
+                    <div class="col-6 col-xl-4">
+                        <label for="lastname-input">Last Name:<span class="text-danger">*</span></label>
+                        <input class="form-control bg-light" type="text" id="lastname-input" placeholder="Cook"
+                               value="<%= lastName %>" name="recipientLastName" required>
+                        <div class="invalid-feedback">Please enter last name.</div>
+                    </div>
+                    <div class="col-6 col-xl-4">
+                        <label for="phone-input">Phone:<span class="text-danger">*</span></label>
+                        <input class="form-control bg-light" type="tel" id="phone-input" placeholder="+777123123123"
+                               value="<%= phone %>" name="recipientPhone" required>
+                        <div class="invalid-feedback">Please enter phone number.</div>
+                    </div>
+                </div>
+                <div class="row gy-2 mt-4">
+                    <div class="col-12">
+                        <div class="fs-5">2. Delivery</div>
+                        <hr class="my-2 opacity-50">
+                    </div>
+                    <div class="col-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="deliveryService" id="nova-poshta"
+                                   value="Nova Poshta" checked>
+                            <label class="form-check-label" for="nova-poshta">Nova Poshta</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="deliveryService" id="meest-express"
+                                   value="Meest Express">
+                            <label class="form-check-label" for="meest-express">Meest Express</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="deliveryService" id="ukrposhta"
+                                   value="UkrPoshta">
+                            <label class="form-check-label" for="ukrposhta">UkrPoshta</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="deliveryMethod" id="pickup"
+                                   value="Pickup" checked>
+                            <label class="form-check-label" for="pickup">Pickup from department</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="deliveryMethod" id="courier"
+                                   value="Courier">
+                            <label class="form-check-label" for="courier">Courier delivery</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <small>* Delivery cost according to the delivery service tariffs.</small>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <select class="form-select mb-2" name="city">
+                            <option value="Zhytomyr" selected>Zhytomyr, Zhytomyr region</option>
+                            <option value="Kyiv">Kyiv, Kyiv region</option>
+                            <option value="Cherkasy">Cherkasy, Cherkasy region</option>
+                            <option value="Mykolaiv">Mykolaiv, Mykolaiv region</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-6" id="col-department-select">
+                        <select class="form-select" name="department">
+                            <option value="1">Department #1</option>
+                            <option value="2">Department #2</option>
+                            <option value="3">Department #3</option>
+                            <option value="4">Department #4</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-6 d-none" id="col-address-input">
+                        <input type="text" class="form-control" placeholder="Your address" name="address">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="fs-5">3. Payment</div>
+                        <hr class="my-2 opacity-50">
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment" id="by-card-online"
+                                   value="By card online" checked>
+                            <label class="form-check-label" for="by-card-online">By card online</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment" id="payment-on-delivery"
+                                   value="Payment on delivery">
+                            <label class="form-check-label" for="payment-on-delivery">Payment on delivery</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 col-sm-6 fs-4 d-flex justify-content-center align-items-center">
+                        In total: $ <%= total %>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <button type="submit" class="btn btn-primary fs-5 w-100 fw-bold">Confirm order</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include("partials/footer"); %>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<% if (!firstName) { %>
+    <script src="/js/sign-up-form-validation.js"></script>
+    <script src="/js/log-in-popover.js"></script>
+<% } %>
+<script>
+    document.querySelector("#pickup").addEventListener("click", () => {
+        if (document.querySelector("#col-department-select").classList.contains("d-none")) {
+            document.querySelector("#col-department-select").classList.remove("d-none");
+        }
+        if (!document.querySelector("#col-address-input").classList.contains("d-none")) {
+            document.querySelector("#col-address-input").classList.add("d-none");
+        }
+    });
+
+    document.querySelector("#courier").addEventListener("click", () => {
+        if (document.querySelector("#col-address-input").classList.contains("d-none")) {
+            document.querySelector("#col-address-input").classList.remove("d-none");
+        }
+        if (!document.querySelector("#col-department-select").classList.contains("d-none")) {
+            document.querySelector("#col-department-select").classList.add("d-none");
+        }
+    });
+
+    document.querySelector("form.needs-validation").addEventListener('submit', function (event) {
+        if (!this.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        this.classList.add('was-validated');
+    }, false);
+</script>
+</body>
+</html>
