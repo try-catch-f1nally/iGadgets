@@ -2,90 +2,7 @@ const {renderErrorPage} = require("./error-controller");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 
-/*It must be cookie data
-[
-        {
-            image: "iphone-13-midnight.jpg",
-            name: "iPhone 13 128gb Midnight",
-            art: "791575",
-            price: 875,
-            amount: 1,
-            sum: 875
-        },
-        {
-            image: "airpods-2.webp",
-            name: "Apple AirPods 2",
-            art: "778041",
-            price: 125,
-            amount: 2,
-            sum: 250
-        },
-        {
-            image: "watch7-midnight.webp",
-            name: "Apple Watch Series 7 45mm Midnight",
-            art: "792417",
-            price: 445,
-            amount: 1,
-            sum: 445
-        }
-    ]*/
-
-const renderUserEditPage = (req, res) => {
-    res.render("account-settings", {
-        firstName: req.session.firstName,
-        lastName: req.session.lastName,
-        phone: req.session.phone,
-        title: `iGadgets | ${req.session.firstName}`,
-        productsInCart: []
-    });
-};
-
-const renderCreateOrderPage = (req, res) => {
-    res.render("create-order", {
-        firstName: req.session.firstName,
-        lastName: req.session.lastName,
-        phone: req.session.phone,
-        title: "iGadgets | Create order",
-        productsInCart: [
-            {
-                image: "iphone-13-midnight.jpg",
-                name: "iPhone 13 128gb Midnight",
-                art: "791575",
-                price: 875,
-                amount: 1,
-                sum: 875
-            },
-            {
-                image: "airpods-2.webp",
-                name: "Apple AirPods 2",
-                art: "778041",
-                price: 125,
-                amount: 2,
-                sum: 250
-            },
-            {
-                image: "watch7-midnight.webp",
-                name: "Apple Watch Series 7 45mm Midnight",
-                art: "792417",
-                price: 445,
-                amount: 1,
-                sum: 445
-            }
-        ]
-    });
-};
-
-const renderOrdersPage = (req, res) => {
-    res.render("orders", {
-        firstName: req.session.firstName,
-        lastName: req.session.lastName,
-        title: `iGadgets | ${req.session.firstName}`,
-        productsInCart: [],
-        orders: getOrders()
-    });
-};
-
-const getOrders = (req, res) => {
+function getOrders(req, res) {
     return [
         {
             number: 9213184,
@@ -201,30 +118,115 @@ const getOrders = (req, res) => {
     ];
 }
 
-const createOrder = (req, res) => {
-    const {
-        recipientFirstName,
-        recipientLastName,
-        recipientPhone,
-        deliveryService,
-        deliveryMethod,
-        city,
-        department,
-        address,
-        payment
-    } = req.body;
-    console.log(req.body);
-};
+function renderUserEditPage(req, res) {
+    try {
+        res.render("account-settings", {
+            firstName: req.session.firstName,
+            lastName: req.session.lastName,
+            phone: req.session.phone,
+            title: `iGadgets | ${req.session.firstName}`,
+            productsInCart: []
+        });
+    } catch (e) {
+        console.log(e);
+        renderErrorPage(500, "500 Server Error")(req, res);
+    }
+}
 
-const editUser = (req, res) => {
+function renderCreateOrderPage(req, res) {
+    try {
+        res.render("create-order", {
+            firstName: req.session.firstName,
+            lastName: req.session.lastName,
+            phone: req.session.phone,
+            title: "iGadgets | Create order",
+            productsInCart: [
+                {
+                    image: "iphone-13-midnight.jpg",
+                    name: "iPhone 13 128gb Midnight",
+                    art: "791575",
+                    price: 875,
+                    amount: 1,
+                    sum: 875
+                },
+                {
+                    image: "airpods-2.webp",
+                    name: "Apple AirPods 2",
+                    art: "778041",
+                    price: 125,
+                    amount: 2,
+                    sum: 250
+                },
+                {
+                    image: "watch7-midnight.webp",
+                    name: "Apple Watch Series 7 45mm Midnight",
+                    art: "792417",
+                    price: 445,
+                    amount: 1,
+                    sum: 445
+                }
+            ]
+        });
+    } catch (e) {
+        console.log(e);
+        renderErrorPage(500, "500 Server Error")(req, res);
+    }
+}
 
-};
+function renderOrdersPage(req, res) {
+    try {
+        res.render("orders", {
+            firstName: req.session.firstName,
+            lastName: req.session.lastName,
+            title: `iGadgets | ${req.session.firstName}`,
+            productsInCart: [],
+            orders: getOrders()
+        });
+    } catch (e) {
+        console.log(e);
+        renderErrorPage(500, "500 Server Error")(req, res);
+    }
+}
 
-const changePassword = (req, res) => {
+function createOrder(req, res) {
+    try {
+        const {
+            recipientFirstName,
+            recipientLastName,
+            recipientPhone,
+            deliveryService,
+            deliveryMethod,
+            city,
+            department,
+            address,
+            payment
+        } = req.body;
+        console.log(req.body);
+    } catch (e) {
+        console.log(e);
+        renderErrorPage(500, "500 Server Error")(req, res);
+    }
+}
 
-};
+function editUser(req, res) {
+    try {
 
-const signUp = async (req, res) => {
+    } catch (e) {
+        console.log(e);
+        renderErrorPage(500, "500 Server Error")(req, res);
+    }
+}
+
+function changePassword(req, res) {
+    try {
+
+    } catch (e) {
+        console.log(e);
+        renderErrorPage(500, "500 Server Error")(req, res);
+    }
+}
+
+async function signUp(req, res) {
     try {
         const {firstName, lastName, phone, password, password2} = req.body;
 
@@ -254,9 +256,9 @@ const signUp = async (req, res) => {
         console.log(e);
         return renderErrorPage(500, "500 Server Error")(req, res);
     }
-};
+}
 
-const logIn = async (req, res) => {
+async function logIn (req, res) {
     try {
         const {phone, password} = req.body;
         const user = await User.findOne({phone});
@@ -275,9 +277,9 @@ const logIn = async (req, res) => {
         console.log(e);
         return renderErrorPage(500, "500 Server Error")(req, res);
     }
-};
+}
 
-const logOut = (req, res) => {
+function logOut(req, res) {
     try {
         req.session.destroy(() => res.redirect("/"));
     } catch (e) {
@@ -297,3 +299,31 @@ module.exports = {
     logIn,
     logOut
 };
+
+/*It must be cookie data
+[
+        {
+            image: "iphone-13-midnight.jpg",
+            name: "iPhone 13 128gb Midnight",
+            art: "791575",
+            price: 875,
+            amount: 1,
+            sum: 875
+        },
+        {
+            image: "airpods-2.webp",
+            name: "Apple AirPods 2",
+            art: "778041",
+            price: 125,
+            amount: 2,
+            sum: 250
+        },
+        {
+            image: "watch7-midnight.webp",
+            name: "Apple Watch Series 7 45mm Midnight",
+            art: "792417",
+            price: 445,
+            amount: 1,
+            sum: 445
+        }
+    ]*/

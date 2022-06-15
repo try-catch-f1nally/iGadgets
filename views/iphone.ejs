@@ -99,7 +99,7 @@
                     <a href="/iphone-<%= model %>-<%= memory %>gb-pink"
                        class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("pink") ? "" : "d-none") %> <%= (color === "pink" ? "active" : "") %> pink-color"></a>
                     <a href="/iphone-<%= model %>-<%= memory %>gb-midnight"
-                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("midnight") ? "" : "d-none") %> <%= (color === "midnight" ? "active" : "") %> midnight-color active"></a>
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("midnight") ? "" : "d-none") %> <%= (color === "midnight" ? "active" : "") %> midnight-color"></a>
                     <a href="/iphone-<%= model %>-<%= memory %>gb-starlight"
                        class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("starlight") ? "" : "d-none") %> <%= (color === "starlight" ? "active" : "") %> starlight-color"></a>
                     <hr>
@@ -174,7 +174,8 @@
                             <button class="btn btn-light w-100 fw-bold <%= isAvailable ? "" : "disabled" %>">Quick buy</button>
                         </div>
                         <div class="col-12 col-sm-6 my-1">
-                            <button class="btn btn-primary w-100 fw-bold <%= isAvailable ? "" : "disabled" %>" id="buy">Buy now</button>
+                            <button class="btn btn-primary w-100 fw-bold <%= isAvailable ? "" : "disabled" %>" id="buy"
+                            data-productid="<%= productId %>">Buy now</button>
                         </div>
                     </div>
                 </div>
@@ -455,19 +456,6 @@
         this.classList.add('was-validated');
     }, false);
 
-    const buyButton = document.querySelector('#buy');
-    const cartAlert = document.querySelector('.alert');
-
-    buyButton.addEventListener('click', () => {
-        cartAlert.classList.remove('visually-hidden');
-        cartAlert.classList.remove('opacity-0');
-        setTimeout(() => {
-            cartAlert.classList.add('opacity-0');
-            setTimeout(() => {
-                cartAlert.classList.add('visually-hidden');
-            }, 150);
-        }, 10000);
-    });
 
     // feedback-rating
     const feedbackRating = document.querySelector('.evaluation');
@@ -564,7 +552,26 @@
             ratingActive.style.width = `${starsAmount / 0.05}%`;
         }
     }
+</script>
+<script>
 
+    const buyButton = document.querySelector('#buy');
+    const cartAlert = document.querySelector('.alert');
+
+    buyButton.addEventListener('click', () => {
+        cartAlert.classList.remove('visually-hidden');
+        cartAlert.classList.remove('opacity-0');
+        setTimeout(() => {
+            cartAlert.classList.add('opacity-0');
+            setTimeout(() => {
+                cartAlert.classList.add('visually-hidden');
+            }, 150);
+        }, 10000);
+        fetch('/add-to-cart', {
+            method: "POST",
+            body: buyButton.dataset.productId
+        });
+    });
 </script>
 </body>
 </html>

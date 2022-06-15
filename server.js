@@ -1,14 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 require("dotenv").config();
 const session = require("express-session");
 const {renderErrorPage} = require("./controllers/error-controller");
 
 const homeRoute = require("./routes/home-router");
+const searchRoute = require("./routes/search-router");
 const iPhonesRoute = require("./routes/iphones-router");
 const iPhoneRoute = require("./routes/iphone-router");
 const userRoute = require("./routes/user-router");
+const cartRoute = require("./routes/cart-router");
 
 const app = express();
 
@@ -21,12 +24,15 @@ app.use(session({
     secret: "secret",
     saveUninitialized: true,
     resave: false
-}))
+}));
+app.use(cookieParser());
 
 app.use(homeRoute);
+app.use(searchRoute);
 app.use(iPhonesRoute);
 app.use(iPhoneRoute);
 app.use(userRoute);
+app.use(cartRoute);
 app.use(renderErrorPage(404, "404 Not Found"));
 
 (async () => {
@@ -37,3 +43,9 @@ app.use(renderErrorPage(404, "404 Not Found"));
         console.log(e);
     }
 })();
+
+/*
+1. поиск товаров с автокомплитом
+4. редактирование учетной записи
+5. создание и просмотр заказов
+* */
