@@ -67,41 +67,59 @@
                     <hr>
                     <h6 class="text-secondary fs-5">Memory Size:</h6>
                     <div class="d-flex flex-wrap">
-                        <a href="/iphone-<%= model %>-64gb-<%= color %>"
+                        <a href="/iphone-<%= model %>-64-<%= color %>"
                            class="btn btn-outline-primary me-3 mt-2 <%= (memories.includes(64) ? "" : "d-none") %> <%= (memory === 64 ? "active" : "") %>">
                             64GB
                         </a>
-                        <a href="/iphone-<%= model %>-128gb-<%= color %>"
+                        <a href="/iphone-<%= model %>-128-<%= color %>"
                            class="btn btn-outline-primary me-3 mt-2 <%= (memories.includes(128) ? "" : "d-none") %> <%= (memory === 128 ? "active" : "") %>">
                             128GB
                         </a>
-                        <a href="/iphone-<%= model %>-256gb-<%= color %>"
+                        <a href="/iphone-<%= model %>-256-<%= color %>"
                            class="btn btn-outline-primary me-3 mt-2 <%= (memories.includes(256) ? "" : "d-none") %> <%= (memory === 256 ? "active" : "") %>">
                             256GB
                         </a>
-                        <a href="/iphone-<%= model %>-512gb-<%= color %>"
+                        <a href="/iphone-<%= model %>-512-<%= color %>"
                            class="btn btn-outline-primary me-3 mt-2 <%= (memories.includes(512) ? "" : "d-none") %> <%= (memory === 512 ? "active" : "") %>">
                             512GB
                         </a>
-                        <a href="/iphone-<%= model %>-1024gb-<%= color %>"
+                        <a href="/iphone-<%= model %>-1024-<%= color %>"
                            class="btn btn-outline-primary me-3 mt-2 <%= (memories.includes(1024) ? "" : "d-none") %> <%= (memory === 1024 ? "active" : "") %>">
                             1TB
                         </a>
                     </div>
                     <hr>
                     <h6 class="text-secondary fs-5">Color:</h6>
-                    <a href="/iphone-<%= model %>-<%= memory %>gb-blue"
+                    <a href="/iphone-<%= model %>-<%= memory %>-blue"
                        class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("blue") ? "" : "d-none") %> <%= (color === "blue" ? "active" : "") %> blue-color"></a>
-                    <a href="/iphone-<%= model %>-<%= memory %>gb-red"
+                    <a href="/iphone-<%= model %>-<%= memory %>-red"
                        class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("red") ? "" : "d-none") %> <%= (color === "red" ? "active" : "") %> red-color"></a>
-                    <a href="/iphone-<%= model %>-<%= memory %>gb-green"
+                    <a href="/iphone-<%= model %>-<%= memory %>-green"
                        class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("green") ? "" : "d-none") %> <%= (color === "green" ? "active" : "") %> green-color"></a>
-                    <a href="/iphone-<%= model %>-<%= memory %>gb-pink"
+                    <a href="/iphone-<%= model %>-<%= memory %>-pink"
                        class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("pink") ? "" : "d-none") %> <%= (color === "pink" ? "active" : "") %> pink-color"></a>
-                    <a href="/iphone-<%= model %>-<%= memory %>gb-midnight"
+                    <a href="/iphone-<%= model %>-<%= memory %>-midnight"
                        class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("midnight") ? "" : "d-none") %> <%= (color === "midnight" ? "active" : "") %> midnight-color"></a>
-                    <a href="/iphone-<%= model %>-<%= memory %>gb-starlight"
+                    <a href="/iphone-<%= model %>-<%= memory %>-starlight"
                        class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("starlight") ? "" : "d-none") %> <%= (color === "starlight" ? "active" : "") %> starlight-color"></a>
+                    <a href="/iphone-<%= model %>-<%= memory %>-alpineGreen"
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("alpineGreen") ? "" : "d-none") %> <%= (color === "alpineGreen" ? "active" : "") %> alpineGreen-color"></a>
+                    <a href="/iphone-<%= model %>-<%= memory %>-black"
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("black") ? "" : "d-none") %> <%= (color === "black" ? "active" : "") %> black-color"></a>
+                    <a href="/iphone-<%= model %>-<%= memory %>-gold"
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("gold") ? "" : "d-none") %> <%= (color === "gold" ? "active" : "") %> gold-color"></a>
+                    <a href="/iphone-<%= model %>-<%= memory %>-graphite"
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("graphite") ? "" : "d-none") %> <%= (color === "graphite" ? "active" : "") %> graphite-color"></a>
+                    <a href="/iphone-<%= model %>-<%= memory %>-pacificBlue"
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("pacificBlue") ? "" : "d-none") %> <%= (color === "pacificBlue" ? "active" : "") %> pacificBlue-color"></a>
+                    <a href="/iphone-<%= model %>-<%= memory %>-purple"
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("purple") ? "" : "d-none") %> <%= (color === "purple" ? "active" : "") %> purple-color"></a>
+                    <a href="/iphone-<%= model %>-<%= memory %>-sierraBlue"
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("sierraBlue") ? "" : "d-none") %> <%= (color === "sierraBlue" ? "active" : "") %> sierraBlue-color"></a>
+                    <a href="/iphone-<%= model %>-<%= memory %>-silver"
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("silver") ? "" : "d-none") %> <%= (color === "silver" ? "active" : "") %> silver-color"></a>
+                    <a href="/iphone-<%= model %>-<%= memory %>-white"
+                       class="btn rounded-circle me-3 mt-2 btn-color btn-hover-border <%= (colors.includes("white") ? "" : "d-none") %> <%= (color === "white" ? "active" : "") %> white-color"></a>
                     <hr>
                     <div class="row justify-content-center">
                         <div class="col rating fs-3 d-flex justify-content-center align-items-center" id="rating">
@@ -265,15 +283,25 @@
     </section>
 
     <section class="container my-5">
-        <h3>Look for the accessories for Iphone 13</h3>
+        <h3>Look for the accessories for <%= name %></h3>
         <hr class="my-2 my-sm-3">
         <div class="slick-carousel px-4">
             <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
-                <img src="img/products/iphone-13-midnight.jpg" class="card-img-top" alt="">
+                <img src="img/products/watch7-midnight.webp" class="card-img-top" alt="">
                 <div class="card-body border-0 d-flex flex-column justify-content-between">
-                    <h6 class="card-title text-center mb-2">Apple iPhone 13 128gb Midnight</h6>
+                    <h6 class="card-title text-center mb-2">Apple Watch Series 7 45mm Midnight</h6>
                     <div class="d-flex justify-content-center align-items-center">
-                        <span class="fs-5 text-center w-50">$ 875</span>
+                        <span class="fs-5 text-center w-50">$ 445</span>
+                        <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
+                <img src="img/products/airpods-2.webp" class="card-img-top" alt="">
+                <div class="card-body border-0 d-flex flex-column justify-content-between">
+                    <h6 class="card-title text-center mb-2">Apple AirPods 2</h6>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <span class="fs-5 text-center w-50">$ 125</span>
                         <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
                     </div>
                 </div>
@@ -299,11 +327,21 @@
                 </div>
             </div>
             <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
-                <img src="img/products/iphone-13-midnight.jpg" class="card-img-top" alt="">
+                <img src="img/products/watch7-midnight.webp" class="card-img-top" alt="">
                 <div class="card-body border-0 d-flex flex-column justify-content-between">
-                    <h6 class="card-title text-center mb-2">Apple iPhone 13 128gb Midnight</h6>
+                    <h6 class="card-title text-center mb-2">Apple Watch Series 7 45mm Midnight</h6>
                     <div class="d-flex justify-content-center align-items-center">
-                        <span class="fs-5 text-center w-50">$ 875</span>
+                        <span class="fs-5 text-center w-50">$ 445</span>
+                        <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
+                <img src="img/products/airpods-2.webp" class="card-img-top" alt="">
+                <div class="card-body border-0 d-flex flex-column justify-content-between">
+                    <h6 class="card-title text-center mb-2">Apple AirPods 2</h6>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <span class="fs-5 text-center w-50">$ 125</span>
                         <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
                     </div>
                 </div>
@@ -329,16 +367,6 @@
                 </div>
             </div>
             <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
-                <img src="img/products/iphone-13-midnight.jpg" class="card-img-top" alt="">
-                <div class="card-body border-0 d-flex flex-column justify-content-between">
-                    <h6 class="card-title text-center mb-2">Apple iPhone 13 128gb Midnight</h6>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <span class="fs-5 text-center w-50">$ 875</span>
-                        <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
                 <img src="img/products/watch7-midnight.webp" class="card-img-top" alt="">
                 <div class="card-body border-0 d-flex flex-column justify-content-between">
                     <h6 class="card-title text-center mb-2">Apple Watch Series 7 45mm Midnight</h6>
@@ -354,16 +382,6 @@
                     <h6 class="card-title text-center mb-2">Apple AirPods 2</h6>
                     <div class="d-flex justify-content-center align-items-center">
                         <span class="fs-5 text-center w-50">$ 125</span>
-                        <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
-                <img src="img/products/iphone-13-midnight.jpg" class="card-img-top" alt="">
-                <div class="card-body border-0 d-flex flex-column justify-content-between">
-                    <h6 class="card-title text-center mb-2">Apple iPhone 13 128gb Midnight</h6>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <span class="fs-5 text-center w-50">$ 875</span>
                         <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
                     </div>
                 </div>
@@ -372,7 +390,7 @@
     </section>
 
     <section class="container my-3" id="reviews">
-        <h3>Reviews about Apple iPhone 13 128GB (Midnight blue)</h3>
+        <h3>Reviews about <%= name %></h3>
         <hr class="my-2 my-sm-3">
         <div class="row">
             <form id="feedback-form" class="col-12 col-lg-5 needs-validation" novalidate>
@@ -403,6 +421,7 @@
                             <span class="fs-3"><%= comment.authorName %></span><span
                                     class="text-secondary fs-5"> - <%= comment.date %></span>
                         </div>
+                        <button class="<%= (comment.userId === id) ? "" : "d-none" %> btn btn-danger bi-trash-fill"> Delete</button>
                         <div class="stars d-flex align-items-end fs-4 lh-1">
                             <div class="stars__body position-relative">
                                 <div class="stars__active"></div>
@@ -554,7 +573,6 @@
     }
 </script>
 <script>
-
     const buyButton = document.querySelector('#buy');
     const cartAlert = document.querySelector('.alert');
 

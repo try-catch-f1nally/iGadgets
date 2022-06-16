@@ -18034,27 +18034,63 @@ textarea {
   border: 0.15rem solid #ffc107 !important;
 }
 
-.blue-color {
-  background: #3da0c2;
+.alpineGreen-color {
+  background: #00493C;
 }
 
-.red-color {
-  background: #e40d0d;
+.black-color {
+  background: #000;
+}
+
+.blue-color {
+  background: #0000ff;
+}
+
+.gold-color {
+  background: #f4d2b9;
+}
+
+.graphite-color {
+  background: #595955;
 }
 
 .green-color {
-  background: #4d584f;
-}
-
-.pink-color {
-  background: #fa8072;
+  background: #1ead37;
 }
 
 .midnight-color {
   background: #0d1b3a;
 }
 
+.pacificBlue-color {
+  background: #4a5a68;
+}
+
+.pink-color {
+  background: #fa8072;
+}
+
+.purple-color{
+  background: #bdb2e1;
+}
+
+.red-color {
+  background: #e40d0d;
+}
+
+.sierraBlue-color {
+  background: #51A0D5;
+}
+
+.silver-color {
+  background: #e9e9e1;
+}
+
 .starlight-color {
+  background: #ffffff;
+}
+
+.white-color {
   background: #ffffff;
 }
 

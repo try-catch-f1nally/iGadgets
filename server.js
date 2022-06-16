@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv").config();
+const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@trycatchfinally.sra77.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`
 const cookieParser = require("cookie-parser");
 const path = require("path");
-require("dotenv").config();
 const session = require("express-session");
 const {renderErrorPage} = require("./controllers/error-controller");
 
@@ -37,15 +38,9 @@ app.use(renderErrorPage(404, "404 Not Found"));
 
 (async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URL);
+        await mongoose.connect(uri);
         app.listen(process.env.PORT, () => console.log(`Server starts on port ${process.env.PORT}`));
     } catch (e) {
         console.log(e);
     }
 })();
-
-/*
-1. поиск товаров с автокомплитом
-4. редактирование учетной записи
-5. создание и просмотр заказов
-* */

@@ -28,6 +28,7 @@ async function renderIPhonePage(req, res) {
         res.render("iphone", {
             title: name,
             firstName: req.session.firstName,
+            id: req.session.id,
             productsInCart: [],
             images,
             name,

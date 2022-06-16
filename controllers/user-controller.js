@@ -251,6 +251,8 @@ async function signUp(req, res) {
         req.session.firstName = firstName;
         req.session.lastName = lastName;
         req.session.phone = phone;
+        req.session.id = user._id;
+        console.log(req.session.id);
         req.session.save(() => res.redirect("back"));
     } catch (e) {
         console.log(e);
@@ -272,6 +274,7 @@ async function logIn (req, res) {
         req.session.firstName = user.firstName;
         req.session.lastName = user.lastName;
         req.session.phone = phone;
+        req.session.id = user._id;
         req.session.save(() => res.redirect("back"));
     } catch (e) {
         console.log(e);

@@ -20,10 +20,8 @@ async function getProducts(models, memories, colors, sort) {
     const query = {};
     if (models.length)
         query.model = {$in: models};
-
     if (memories.length)
         query.memory = {$in: memories};
-
     if (colors.length)
         query.color = {$in: colors};
 
@@ -31,27 +29,19 @@ async function getProducts(models, memories, colors, sort) {
     if (sort === "asc") sortFilter.price = 1;
     if (sort === "desc") sortFilter.price = -1;
     if (sort === "top") sortFilter.rating = -1;
+
     const products = await IPhone.find(query).sort(sortFilter);
     const iphones = [];
-    products.forEach(product =>
-        iphones.push(
+    products.forEach(product => iphones.push(
             {
                 img: product.images[0],
                 name: product.name,
                 price: product.price.toString(),
                 productPageHref: "/iphone-" + product.model + "-" + product.memory + "-" + product.color,
             },
-        ),
+        )
     );
     return iphones;
-    // return [
-    //     {
-    //         img: "iphone-13-midnight.jpg",
-    //         name: "Apple iPhone 13 128gb Midnight",
-    //         price: "875",
-    //         productPageHref : "/iphone-13-128gb-midnight"
-    //     },
-    // ];
 }
 
 async function getFilteredModels(memories, colors) {
@@ -66,9 +56,9 @@ async function getFilteredModels(memories, colors) {
 async function getFilteredMemories(models, colors) {
     const query = {};
     if (models.length)
-        query.model = { $in: models };
+        query.model = {$in: models};
     if (colors.length)
-        query.color = { $in: colors };
+        query.color = {$in: colors};
     return IPhone.find(query, {memory: 1}).distinct('memory');
 
 }
@@ -77,10 +67,10 @@ async function getFilteredColors(models, memories) {
     const query = {};
 
     if (models.length)
-        query.model = { $in: models };
+        query.model = {$in: models};
 
     if (memories.length)
-        query.memories = { $in: memories };
+        query.memories = {$in: memories};
 
     return IPhone.find(query, {color: 1}).distinct('color');
 }
@@ -90,9 +80,9 @@ async function renderIPhonesPage(req, res) {
         let {models, memories, colors, page, sort, queryString} = getParams(req);
         const products = await getProducts(models, memories, colors, sort);
         const pages = Math.ceil(products.length / 12);
-        const filteredModels = await getFilteredModels(memories, colors);
-        const filteredMemories = (await getFilteredMemories(models, colors)).map(String);
-        const filteredColors = await getFilteredColors(models, memories);
+        const filteredModels = Array.from(new Set(models.concat(await getFilteredModels(memories, colors))));
+        const filteredMemories = Array.from(new Set(memories.concat((await getFilteredMemories(models, colors)).map(String))));
+        const filteredColors = Array.from(new Set(colors.concat(await getFilteredColors(models, memories))));
 
         res.render("iphones", {
             title: "iGadgets | iPhones",
