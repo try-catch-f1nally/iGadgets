@@ -92,7 +92,7 @@ const phones = [
         color: "midnight",
         colors: ["green", "midnight", "starlight"],
         isAvailable: true, art: 2394822921,
-        rating: 5,
+        rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
             paragraph: "It seems that we can be better for the flagship twelve, as it is equipped with advanced technologies in the field of mobile distribution. But all the same, the creators of Cupertino dermal once in a while can be amazed by the novelties with a particularly stylish design and innovative filling. A hot Apple iPhone 13 will freeze at first glance. Elegant design of the body, new colors, marvelous display, cameras that can be used with better photo equipment, smarter processors and a smarter operating system. For a long time already, it’s not just smartphones, but the performance of high-tech art.",
@@ -169,7 +169,7 @@ const phones = [
         color: "midnight",
         colors: ["green", "midnight", "starlight"],
         isAvailable: true, art: 2394822921,
-        rating: 4,
+        rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
             paragraph: "It seems that we can be better for the flagship twelve, as it is equipped with advanced technologies in the field of mobile distribution. But all the same, the creators of Cupertino dermal once in a while can be amazed by the novelties with a particularly stylish design and innovative filling. A hot Apple iPhone 13 will freeze at first glance. Elegant design of the body, new colors, marvelous display, cameras that can be used with better photo equipment, smarter processors and a smarter operating system. For a long time already, it’s not just smartphones, but the performance of high-tech art.",
@@ -244,7 +244,7 @@ const phones = [
         color: "green",
         colors: ["green", "midnight", "starlight"],
         isAvailable: true, art: 2394822921,
-        rating: 3,
+        rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
             paragraph: "It seems that we can be better for the flagship twelve, as it is equipped with advanced technologies in the field of mobile distribution. But all the same, the creators of Cupertino dermal once in a while can be amazed by the novelties with a particularly stylish design and innovative filling. A hot Apple iPhone 13 will freeze at first glance. Elegant design of the body, new colors, marvelous display, cameras that can be used with better photo equipment, smarter processors and a smarter operating system. For a long time already, it’s not just smartphones, but the performance of high-tech art.",
@@ -700,7 +700,7 @@ const phones = [
         color: "silver",
         colors: ["silver"],
         isAvailable: true, art: 2394822921,
-        rating: 5,
+        rating: 0,
         description: {
             header: "Apple iPhone 13 Pro - a symbiosis of reliability and elegance",
             paragraph: "Similar to the twelfth generation, in 2021 Apple introduced the flagship models of the Pro category. The new iPhone 13 Pro, introduced at the Apple Event in September 2021, traditionally received new interior equipment, an improved camera system, a stylish ergonomic design, and a new body color. What else can boast a hot novelty from the best designers and engineers from Cupertino? We offer you to get acquainted with the flagship Apple iPhone 13 About a little closer and evaluate the main advantages and technical innovations.",
@@ -858,7 +858,7 @@ const phones = [
         color: "silver",
         colors: ["silver", "graphite"],
         isAvailable: true, art: 2394822921,
-        rating: 4.5,
+        rating: 0,
         description: {
             header: "Apple iPhone 13 Pro - a symbiosis of reliability and elegance",
             paragraph: "Similar to the twelfth generation, in 2021 Apple introduced the flagship models of the Pro category. The new iPhone 13 Pro, introduced at the Apple Event in September 2021, traditionally received new interior equipment, an improved camera system, a stylish ergonomic design, and a new body color. What else can boast a hot novelty from the best designers and engineers from Cupertino? We offer you to get acquainted with the flagship Apple iPhone 13 About a little closer and evaluate the main advantages and technical innovations.",
@@ -937,7 +937,7 @@ const phones = [
         color: "graphite",
         colors: ["silver", "graphite"],
         isAvailable: true, art: 2394822921,
-        rating: 5,
+        rating: 0,
         description: {
             header: "Apple iPhone 13 Pro - a symbiosis of reliability and elegance",
             paragraph: "Similar to the twelfth generation, in 2021 Apple introduced the flagship models of the Pro category. The new iPhone 13 Pro, introduced at the Apple Event in September 2021, traditionally received new interior equipment, an improved camera system, a stylish ergonomic design, and a new body color. What else can boast a hot novelty from the best designers and engineers from Cupertino? We offer you to get acquainted with the flagship Apple iPhone 13 About a little closer and evaluate the main advantages and technical innovations.",
@@ -2855,7 +2855,7 @@ const phones = [
         color: "red",
         colors: ["black", "white", "red", "yellow", "blue"],
         isAvailable: true, art: 2394822921,
-        rating: 3,
+        rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
             paragraph: "The iPhone XR is an alternative to the iPhone X, as the latter has been discontinued. At the same time, it has significant advantages over the top ten, but there are some disadvantages. What are the pros and cons of the brand new iPhone XR? We will learn about this from the text below.",
@@ -3697,28 +3697,28 @@ module.exports = {phones};
 //         authorName: "Alex",
 //         date: "05/13/22",
 //         userId: "",
-//         rating: 5,
+//         rating: 0,
 //         text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
 //     },
 //     {
 //         authorName: "Martha",
 //         date: "05/10/22",
 //         userId: "",
-//         rating: 5,
+//         rating: 0,
 //         text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
 //     },
 //     {
 //         authorName: "Helena",
 //         date: "05/03/22",
 //         userId: "",
-//         rating: 5,
+//         rating: 0,
 //         text: "Cool cameras, I take incredible photos on it! thank you)"
 //     },
 //     {
 //         authorName: "Marina",
 //         date: "17/01/22",
 //         userId: "",
-//         rating: 5,
+//         rating: 0,
 //         text: "The camera is great, easy to use and a fast smartphone"
 //     },
 // ],

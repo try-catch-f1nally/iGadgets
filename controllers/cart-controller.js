@@ -3,7 +3,14 @@ const IPhone = require("../models/IPhone");
 function addToCart(req, res) {
     if (req.session.firstName) {
         const cookiesCart = (req.cookies.cart) ? JSON.parse(req.cookies.cart) : [];
-        cookiesCart.push(req.body);
+        console.log(cookiesCart);
+        for (let cookiePart of cookiesCart) {
+            if (cookiePart.productId === req.body.productId) {
+                cookiePart.amount = req.body.amount;
+                break;
+            }
+        }
+        console.log(cookiesCart);
         res.cookie('cart', JSON.stringify(cookiesCart));
         res.redirect("back");
     }
@@ -15,7 +22,7 @@ async function getProductsInCart(req) {
     cookie.forEach(item => cookieMap.set(item.productId, item.amount));
 
     const productsId = (req.cookies.cart) ? JSON.parse(req.cookies.cart).map(item => item.productId) : [];
-    console.log(productsId)
+    // console.log(productsId)
     const products = (productsId.length) ? Array.from((await IPhone.find({_id: productsId}))) : [];
 
     const productsInCart = [];

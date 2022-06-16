@@ -2,104 +2,11 @@ const {renderErrorPage} = require("./error-controller");
 const {getProductsInCart} = require("./cart-controller");
 
 function getProductsByKeywords(keywords) {
-    return [
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-        {
-            img: "iphone-13-midnight.jpg",
-            name: "Apple iPhone 13 128gb Midnight",
-            price: "875",
-            productPageHref: "/iphone-13-128gb-midnight"
-        },
-    ];
+    const products = [];
+    //1. обратиться в базу данных, вытянуть все айфоны product.name
+    //2. проитерироваться по вытянутым айфонам и вычислить совпадения с ключевыми словами
+    //3. отсортировать по убыванию
+    return products;
 }
 
 async function renderSearchPage(req, res) {

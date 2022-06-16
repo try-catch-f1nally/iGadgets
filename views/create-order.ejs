@@ -164,18 +164,22 @@
     document.querySelector("#pickup").addEventListener("click", () => {
         if (document.querySelector("#col-department-select").classList.contains("d-none")) {
             document.querySelector("#col-department-select").classList.remove("d-none");
+            document.querySelector("#col-address-input").firstElementChild.value = "";
         }
         if (!document.querySelector("#col-address-input").classList.contains("d-none")) {
             document.querySelector("#col-address-input").classList.add("d-none");
+            document.querySelector("#col-address-input").firstElementChild.value = "";
         }
     });
 
     document.querySelector("#courier").addEventListener("click", () => {
         if (document.querySelector("#col-address-input").classList.contains("d-none")) {
             document.querySelector("#col-address-input").classList.remove("d-none");
+            document.querySelector("#col-department-select").firstElementChild.value = 0;
         }
         if (!document.querySelector("#col-department-select").classList.contains("d-none")) {
             document.querySelector("#col-department-select").classList.add("d-none");
+            document.querySelector("#col-department-select").firstElementChild.value = 0;
         }
     });
 
