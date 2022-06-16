@@ -193,7 +193,7 @@
                         </div>
                         <div class="col-12 col-sm-6 my-1">
                             <button class="btn btn-primary w-100 fw-bold <%= isAvailable ? "" : "disabled" %>" id="buy"
-                            data-productid="<%= productId %>">Buy now</button>
+                            data-product-id="<%= productId %>">Buy now</button>
                         </div>
                     </div>
                 </div>
@@ -587,7 +587,13 @@
         }, 10000);
         fetch('/add-to-cart', {
             method: "POST",
-            body: buyButton.dataset.productId
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                productId: buyButton.dataset.productId,
+                amount: 1
+            })
         });
     });
 </script>

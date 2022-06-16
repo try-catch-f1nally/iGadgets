@@ -1,3 +1,5 @@
+const {getProductsInCart} = require("./cart-controller");
+
 function renderErrorPage(statusCode, statusTitle) {
     return (req, res) => res
         .status(statusCode)
@@ -5,6 +7,7 @@ function renderErrorPage(statusCode, statusTitle) {
             title: statusTitle,
             firstName: req.session.firstName,
             productsInCart: []
+            // productsInCart: await getProductsInCart(req)
         });
 }
 

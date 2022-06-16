@@ -1,4 +1,5 @@
 const {renderErrorPage} = require("./error-controller");
+const {getProductsInCart} = require("./cart-controller");
 
 function getProductsByKeywords(keywords) {
     return [
@@ -101,7 +102,7 @@ function getProductsByKeywords(keywords) {
     ];
 }
 
-function renderSearchPage(req, res) {
+async function renderSearchPage(req, res) {
     let keywords = req.query.keywords.toLowerCase().split(" ");
     let page = +req.query.page || 1;
     let sort = req.params.sort || "newest";
@@ -113,7 +114,7 @@ function renderSearchPage(req, res) {
         res.render("search", {
             title: "iGadgets | Search",
             firstName: req.session.firstName,
-            productsInCart: [],
+            productsInCart: await getProductsInCart(req),
             page,
             pages,
             products,

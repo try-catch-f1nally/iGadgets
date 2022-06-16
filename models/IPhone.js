@@ -28,6 +28,9 @@ const IPhone = new Schema({
     isAvailable: {
         type: Boolean, required: true,
     },
+    art: {
+        type: Number, required: true
+    },
     rating: {
         type: Number,
     },

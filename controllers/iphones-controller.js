@@ -1,5 +1,6 @@
 const {renderErrorPage} = require("./error-controller");
 const IPhone = require("../models/IPhone");
+const {getProductsInCart} = require("./cart-controller");
 
 function getParams(req) {
     let queryString = req.originalUrl.split("?")[1] || "";
@@ -29,6 +30,7 @@ async function getProducts(models, memories, colors, sort) {
     if (sort === "asc") sortFilter.price = 1;
     if (sort === "desc") sortFilter.price = -1;
     if (sort === "top") sortFilter.rating = -1;
+    if (sort === "newest") sortFilter.createdAt = -1;
 
     const products = await IPhone.find(query).sort(sortFilter);
     const iphones = [];
@@ -87,7 +89,7 @@ async function renderIPhonesPage(req, res) {
         res.render("iphones", {
             title: "iGadgets | iPhones",
             firstName: req.session.firstName,
-            productsInCart: [],
+            productsInCart: await getProductsInCart(req),
             models,
             memories,
             colors,

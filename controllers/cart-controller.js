@@ -1,26 +1,39 @@
 const IPhone = require("../models/IPhone");
+const {logOut} = require("./user-controller");
 
 function addToCart(req, res) {
     if (req.session.firstName) {
-        const productsId = (req.cookies.cart) ? JSON.parse(req.cookies.cart) : [];
-        productsId.push({
-            id: req.body,
-            amount: 1
-        });
-        res.cookie('cart', JSON.stringify(productsId));
+        const cookiesCart = (req.cookies.cart) ? JSON.parse(req.cookies.cart) : [];
+        cookiesCart.push(req.body);
+        res.cookie('cart', JSON.stringify(cookiesCart));
         res.redirect("back");
     }
 }
 
 async function getProductsInCart(req, res) {
-    // const productsId = (req.cookies.cart) ? JSON.parse(req.cookies.cart) : [];
-    // const productsInCart = (await IPhone.find({_id: {$in: productsId}})) || [];
-    // console.log(productsInCart)
-    // return productsInCart;
+    let cookie = (req.cookies.cart) ? JSON.parse(req.cookies.cart) : [];
+    const cookieMap = new Map();
+    cookie.forEach(item => cookieMap.set(item.productId, item.amount));
+
+    const productsId = (req.cookies.cart) ? JSON.parse(req.cookies.cart).map(item => item.productId) : [];
+    console.log(productsId)
+    const products = (productsId.length) ? Array.from((await IPhone.find({_id: productsId}))) : [];
+
+    const productsInCart = [];
+    products.forEach(product => productsInCart.push({
+        image: product.images[0],
+        name: product.name,
+        art: product.art,
+        price: product.price,
+        amount: cookieMap.get(product._id.toString()),
+        sum: +product.price * +cookieMap.get(product._id.toString())
+    }));
+    productsInCart.forEach(item => console.log(item.name));
+    return productsInCart;
 }
 
 function removeFromCart(req, res) {
-
+    
 }
 
 module.exports = {addToCart, getProductsInCart, removeFromCart};

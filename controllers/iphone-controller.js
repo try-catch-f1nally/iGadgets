@@ -1,5 +1,6 @@
-const {renderErrorPage} = require("./error-controller");
 const IPhone = require("../models/IPhone");
+const {renderErrorPage} = require("./error-controller");
+const {getProductsInCart} = require("./cart-controller");
 
 async function getProduct(modelParam, memoryParam, colorParam) {
     return (await IPhone.find({model: modelParam, memory: memoryParam, color: colorParam}))[0];
@@ -9,6 +10,7 @@ async function renderIPhonePage(req, res) {
     try {
         const {model: modelParam, memory: memoryParam, color: colorParam} = req.params;
         const {
+            _id: productId,
             images,
             name,
             price,
@@ -29,7 +31,7 @@ async function renderIPhonePage(req, res) {
             title: name,
             firstName: req.session.firstName,
             id: req.session.id,
-            productsInCart: [],
+            productsInCart: await getProductsInCart(req),
             images,
             name,
             price,
@@ -44,7 +46,7 @@ async function renderIPhonePage(req, res) {
             videoLink,
             characteristics,
             comments,
-            productId: "2938a97s99f93e39"
+            productId
         });
     } catch (e) {
         console.log(e);

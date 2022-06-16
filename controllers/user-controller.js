@@ -1,131 +1,20 @@
 const {renderErrorPage} = require("./error-controller");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
+const {getProductsInCart} = require("./cart-controller");
 
-function getOrders(req, res) {
-    return [
-        {
-            number: 9213184,
-            date: "2022-06-01",
-            totalAmount: 1570,
-            status: "Pending dispatch",
-            waybill: "-",
-            recipient: {
-                name: "Boris Johnsonuk",
-                phone: "+380998887766",
-            },
-            delivery: {
-                service: "Meest Express",
-                method: "Pickup on delivery",
-                city: "Zhytomyr",
-                department: 23,
-                address: null
-            },
-            payment: "Payment on delivery",
-            products: [
-                {
-                    img: "iphone-13-midnight.jpg",
-                    name: "iPhone 13 128gb Midnight",
-                    art: 791575,
-                    price: 875,
-                    amount: 1,
-                    sum: 875
-                },
-                {
-                    img: "airpods-2.webp",
-                    name: "Apple AirPods 2",
-                    art: 778041,
-                    price: 125,
-                    amount: 2,
-                    sum: 250
-                },
-                {
-                    img: "watch7-midnight.webp",
-                    name: "Apple Watch Series 7 45mm Midnight",
-                    art: 792417,
-                    price: 445,
-                    amount: 1,
-                    sum: 445
-                }
-            ]
-        },
-        {
-            number: 9234813,
-            date: "2022-05-30",
-            totalAmount: 1125,
-            status: "In transit",
-            waybill: "IG1293481010",
-            recipient: {
-                name: "Vasya Pupkin",
-                phone: "+380976543210",
-            },
-            delivery: {
-                service: "Nova Poshta",
-                method: "Pickup on delivery",
-                city: "Kyiv",
-                department: 105,
-                address: null
-            },
-            payment: "Online by card",
-            products: [
-                {
-                    img: "iphone-13-midnight.jpg",
-                    name: "iPhone 13 128gb Midnight",
-                    art: 791575,
-                    price: 875,
-                    amount: 1,
-                    sum: 875
-                },
-                {
-                    img: "airpods-2.webp",
-                    name: "Apple AirPods 2",
-                    art: 778041,
-                    price: 125,
-                    amount: 2,
-                    sum: 250
-                }
-            ]
-        },
-        {
-            number: 9234813,
-            date: "2022-05-10",
-            totalAmount: 875,
-            status: "Completed",
-            waybill: "IG1293481293",
-            recipient: {
-                name: "Vasya Pupkin",
-                phone: "+380976543210",
-            },
-            delivery: {
-                service: "Nova Poshta",
-                method: "Pickup on delivery",
-                city: "Kyiv",
-                department: 105,
-                address: null
-            },
-            payment: "Online by card",
-            products: [
-                {
-                    img: "iphone-13-midnight.jpg",
-                    name: "iPhone 13 128gb Midnight",
-                    art: 791575,
-                    price: 875,
-                    amount: 1,
-                    sum: 875
-                }
-            ]
-        }
-    ];
+async function getOrders(req, res) {
+    return (await User.findOne({ phone: req.session.phone })).orders;
 }
 
-function renderUserEditPage(req, res) {
+async function renderUserEditPage(req, res) {
     try {
         res.render("account-settings", {
             firstName: req.session.firstName,
             lastName: req.session.lastName,
             phone: req.session.phone,
             title: `iGadgets | ${req.session.firstName}`,
-            productsInCart: []
+            productsInCart: await getProductsInCart(req)
         });
     } catch (e) {
         console.log(e);
@@ -173,14 +62,14 @@ function renderCreateOrderPage(req, res) {
     }
 }
 
-function renderOrdersPage(req, res) {
+async function renderOrdersPage(req, res) {
     try {
         res.render("orders", {
             firstName: req.session.firstName,
             lastName: req.session.lastName,
             title: `iGadgets | ${req.session.firstName}`,
-            productsInCart: [],
-            orders: getOrders()
+            productsInCart: await getProductsInCart(req),
+            orders: await getOrders(req)
         });
     } catch (e) {
         console.log(e);
@@ -188,7 +77,7 @@ function renderOrdersPage(req, res) {
     }
 }
 
-function createOrder(req, res) {
+async function createOrder(req, res) {
     try {
         const {
             recipientFirstName,
@@ -201,7 +90,32 @@ function createOrder(req, res) {
             address,
             payment
         } = req.body;
-        console.log(req.body);
+
+        const user = await User
+            .findOneAndUpdate(
+                { phone: req.session.phone },
+                {
+                    $push: {
+                        orders: {
+                            number: 1,
+                            products: ["1", "2"],
+                            totalAmount: 5,
+                            status: "Pending dispatch",
+                            waybill: "IG1293481010",
+                            recipient: {
+                                fullName: recipientFirstName + " " + recipientLastName,
+                                phone: recipientPhone
+                            },
+                            delivery: {
+                                serviceName: deliveryService,
+                                method: deliveryMethod,
+                                address: city + address + " " + department
+                            },
+                            payment: payment,
+                        }
+                    }
+                });
+        res.redirect("/user/orders");
     } catch (e) {
         console.log(e);
         renderErrorPage(500, "500 Server Error")(req, res);
@@ -302,31 +216,3 @@ module.exports = {
     logIn,
     logOut
 };
-
-/*It must be cookie data
-[
-        {
-            image: "iphone-13-midnight.jpg",
-            name: "iPhone 13 128gb Midnight",
-            art: "791575",
-            price: 875,
-            amount: 1,
-            sum: 875
-        },
-        {
-            image: "airpods-2.webp",
-            name: "Apple AirPods 2",
-            art: "778041",
-            price: 125,
-            amount: 2,
-            sum: 250
-        },
-        {
-            image: "watch7-midnight.webp",
-            name: "Apple Watch Series 7 45mm Midnight",
-            art: "792417",
-            price: 445,
-            amount: 1,
-            sum: 445
-        }
-    ]*/

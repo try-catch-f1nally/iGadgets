@@ -12,34 +12,28 @@ const User = new Schema({
     },
     password: {
         type: String, required: true
-    }
+    },
+    orders: [
+        {
+            number: Number,
+            products: [
+                String
+            ],
+            totalAmount: Number,
+            status: String,
+            waybill: String,
+            recipient: {
+                fullName: String,
+                phone: String
+            },
+            delivery: {
+                serviceName: String,
+                method: String,
+                address: String
+            },
+            payment: String,
+        }
+    ]
 });
 
 module.exports = model("User", User);
-
-/*[
-  {
-    "firstname": "string",
-    "lastname": "string",
-    "passwordHash": "string",
-    "orders": [
-      {
-        "number": "int",
-        "products": ["id", "id", "id"],
-        "totalAmount": "int",
-        "status": "string",
-        "waybill": "string",
-        "recipient": {
-          "fullName": "string",
-          "phone": "string"
-        },
-        "delivery": {
-          "serviceName": "string",
-          "method": "string",
-          "address": "string"
-        },
-        "payment": "string"
-      }
-    ]
-  }
-]*/
