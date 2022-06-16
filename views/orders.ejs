@@ -15,6 +15,7 @@
             </nav>
         </div>
         <div class="col-12 col-md-8 col-xl-9">
+            <% if (orders.length) {%>
             <% for (let order of orders) { %>
                 <div class="modal fade" id="order<%= order.number %>">
                     <div class="modal-dialog">
@@ -124,16 +125,13 @@
                     </div>
                 </div>
                 <% } %>
+            <% } else { %>
+                <h4>You have no orders.</h4>
+            <% } %>
         </div>
     </div>
 </main>
 
 <%- include("partials/footer"); %>
-<script src="/js/bootstrap.bundle.min.js"></script>
-<% if (!firstName) { %>
-    <script src="/js/sign-up-form-validation.js"></script>
-    <script src="/js/log-in-popover.js"></script>
-<% } %>
-
 </body>
 </html>

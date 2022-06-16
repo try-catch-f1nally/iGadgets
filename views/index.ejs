@@ -46,12 +46,12 @@
         <div class="slick-carousel px-4">
             <% for (let product of topRatingProducts) { %>
                 <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
-                    <img src="/img/products/<%= product.img %>" class="card-img-top" alt="">
+                    <img src="/img/products/<%= product.images[0] %>" class="card-img-top" alt="">
                     <div class="card-body border-0 d-flex flex-column justify-content-between">
                         <h6 class="card-title text-center mb-2"><%= product.name %></h6>
                         <div class="d-flex justify-content-center align-items-center">
                             <span class="fs-5 text-center w-50">$ <%= product.price %></span>
-                            <a href="#" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
+                            <a href="<%= `/iphone-${product.model}-${product.memory}-${product.color}`%>" class="btn btn-primary d-block w-50 stretched-link">Buy</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
         <div class="slick-carousel px-4">
             <% for (let product of latestProducts) { %>
                 <div class="card border-0 mx-1 bg-dark position-relative d-flex flex-column justify-content-between card-transition">
-                    <img src="/img/products/<%= product.img %>" class="card-img-top" alt="">
+                    <img src="/img/products/<%= product.images[0] %>" class="card-img-top" alt="">
                     <div class="card-body border-0 d-flex flex-column justify-content-between">
                         <h6 class="card-title text-center mb-2"><%= product.name %></h6>
                         <div class="d-flex justify-content-center align-items-center">
@@ -104,11 +104,6 @@
 </main>
 
 <%- include("partials/footer"); %>
-<script src="/js/bootstrap.bundle.min.js"></script>
-<% if (!firstName) { %>
-    <script src="/js/sign-up-form-validation.js"></script>
-    <script src="/js/log-in-popover.js"></script>
-<% } %>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/slick.min.js"></script>
 <script src="/js/slick-config.js"></script>

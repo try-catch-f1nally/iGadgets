@@ -1,5 +1,4 @@
 const IPhone = require("../models/IPhone");
-const {logOut} = require("./user-controller");
 
 function addToCart(req, res) {
     if (req.session.firstName) {
@@ -10,7 +9,7 @@ function addToCart(req, res) {
     }
 }
 
-async function getProductsInCart(req, res) {
+async function getProductsInCart(req) {
     let cookie = (req.cookies.cart) ? JSON.parse(req.cookies.cart) : [];
     const cookieMap = new Map();
     cookie.forEach(item => cookieMap.set(item.productId, item.amount));
@@ -28,12 +27,11 @@ async function getProductsInCart(req, res) {
         amount: cookieMap.get(product._id.toString()),
         sum: +product.price * +cookieMap.get(product._id.toString())
     }));
-    productsInCart.forEach(item => console.log(item.name));
     return productsInCart;
 }
 
 function removeFromCart(req, res) {
-    
+
 }
 
 module.exports = {addToCart, getProductsInCart, removeFromCart};

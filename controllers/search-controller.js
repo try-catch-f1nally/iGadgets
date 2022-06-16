@@ -123,7 +123,7 @@ async function renderSearchPage(req, res) {
         });
     } catch (e) {
         console.log(e);
-        renderErrorPage(500, "500 Server Error")(req, res);
+        return renderErrorPage(500, "500 Server Error")(req, res);
     }
 }
 

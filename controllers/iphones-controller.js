@@ -32,18 +32,7 @@ async function getProducts(models, memories, colors, sort) {
     if (sort === "top") sortFilter.rating = -1;
     if (sort === "newest") sortFilter.createdAt = -1;
 
-    const products = await IPhone.find(query).sort(sortFilter);
-    const iphones = [];
-    products.forEach(product => iphones.push(
-            {
-                img: product.images[0],
-                name: product.name,
-                price: product.price.toString(),
-                productPageHref: "/iphone-" + product.model + "-" + product.memory + "-" + product.color,
-            },
-        )
-    );
-    return iphones;
+    return IPhone.find(query).sort(sortFilter);
 }
 
 async function getFilteredModels(memories, colors) {
@@ -104,7 +93,7 @@ async function renderIPhonesPage(req, res) {
         });
     } catch (e) {
         console.log(e);
-        renderErrorPage(500, "500 Server Error")(req, res);
+        return renderErrorPage(500, "500 Server Error")(req, res);
     }
 }
 

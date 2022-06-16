@@ -310,12 +310,12 @@
                 %>
                     <div class="col-6 col-sm-4 col-xl-3">
                         <div class="card border-0 bg-dark position-relative card-transition h-100">
-                            <img src="/img/products/<%= products[i].img %>" class="card-img-top" alt="">
+                            <img src="/img/products/<%= products[i].images[0] %>" class="card-img-top" alt="">
                             <div class="card-body p-2 d-flex flex-column justify-content-between">
                                 <h6 class="card-title text-center mb-2"><%= products[i].name %></h6>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <span class="fs-5 text-center w-50">$ <%= products[i].price %></span>
-                                    <a href="<%= products[i].productPageHref %>"
+                                    <a href="<%= `/iphone-${products[i].model}-${products[i].memory}-${products[i].color}` %>"
                                        class="btn btn-primary d-block w-50 fw-bold stretched-link">Buy</a>
                                 </div>
                             </div>
@@ -355,10 +355,5 @@
 </main>
 
 <%- include("partials/footer"); %>
-<script src="/js/bootstrap.bundle.min.js"></script>
-<% if (!firstName) { %>
-    <script src="/js/sign-up-form-validation.js"></script>
-    <script src="/js/log-in-popover.js"></script>
-<% } %>
 </body>
 </html>

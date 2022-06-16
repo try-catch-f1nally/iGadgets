@@ -1,9 +1,9 @@
 const {renderErrorPage} = require("./error-controller");
+const {getProductsInCart} = require("./cart-controller");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
-const {getProductsInCart} = require("./cart-controller");
 
-async function getOrders(req, res) {
+async function getOrders(req) {
     return (await User.findOne({ phone: req.session.phone })).orders;
 }
 
@@ -18,47 +18,22 @@ async function renderUserEditPage(req, res) {
         });
     } catch (e) {
         console.log(e);
-        renderErrorPage(500, "500 Server Error")(req, res);
+        return renderErrorPage(500, "500 Server Error")(req, res);
     }
 }
 
-function renderCreateOrderPage(req, res) {
+async function renderCreateOrderPage(req, res) {
     try {
         res.render("create-order", {
             firstName: req.session.firstName,
             lastName: req.session.lastName,
             phone: req.session.phone,
             title: "iGadgets | Create order",
-            productsInCart: [
-                {
-                    image: "iphone-13-midnight.jpg",
-                    name: "iPhone 13 128gb Midnight",
-                    art: "791575",
-                    price: 875,
-                    amount: 1,
-                    sum: 875
-                },
-                {
-                    image: "airpods-2.webp",
-                    name: "Apple AirPods 2",
-                    art: "778041",
-                    price: 125,
-                    amount: 2,
-                    sum: 250
-                },
-                {
-                    image: "watch7-midnight.webp",
-                    name: "Apple Watch Series 7 45mm Midnight",
-                    art: "792417",
-                    price: 445,
-                    amount: 1,
-                    sum: 445
-                }
-            ]
+            productsInCart: await getProductsInCart(req)
         });
     } catch (e) {
         console.log(e);
-        renderErrorPage(500, "500 Server Error")(req, res);
+        return renderErrorPage(500, "500 Server Error")(req, res);
     }
 }
 
@@ -73,7 +48,7 @@ async function renderOrdersPage(req, res) {
         });
     } catch (e) {
         console.log(e);
-        renderErrorPage(500, "500 Server Error")(req, res);
+        return renderErrorPage(500, "500 Server Error")(req, res);
     }
 }
 
@@ -118,25 +93,25 @@ async function createOrder(req, res) {
         res.redirect("/user/orders");
     } catch (e) {
         console.log(e);
-        renderErrorPage(500, "500 Server Error")(req, res);
+        return renderErrorPage(500, "500 Server Error")(req, res);
     }
 }
 
-function editUser(req, res) {
+async function editUser(req, res) {
     try {
 
     } catch (e) {
         console.log(e);
-        renderErrorPage(500, "500 Server Error")(req, res);
+        return renderErrorPage(500, "500 Server Error")(req, res);
     }
 }
 
-function changePassword(req, res) {
+async function changePassword(req, res) {
     try {
 
     } catch (e) {
         console.log(e);
-        renderErrorPage(500, "500 Server Error")(req, res);
+        return renderErrorPage(500, "500 Server Error")(req, res);
     }
 }
 

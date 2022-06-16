@@ -160,11 +160,6 @@
 </main>
 
 <%- include("partials/footer"); %>
-<script src="/js/bootstrap.bundle.min.js"></script>
-<% if (!firstName) { %>
-    <script src="/js/sign-up-form-validation.js"></script>
-    <script src="/js/log-in-popover.js"></script>
-<% } %>
 <script>
     document.querySelector("#pickup").addEventListener("click", () => {
         if (document.querySelector("#col-department-select").classList.contains("d-none")) {
