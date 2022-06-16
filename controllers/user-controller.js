@@ -4,7 +4,7 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 
 async function getOrders(req) {
-    return (await User.findOne({ phone: req.session.phone })).orders;
+    return (await User.findOne({phone: req.session.phone})).orders;
 }
 
 async function renderUserEditPage(req, res) {
@@ -68,7 +68,7 @@ async function createOrder(req, res) {
 
         const user = await User
             .findOneAndUpdate(
-                { phone: req.session.phone },
+                {phone: req.session.phone},
                 {
                     $push: {
                         orders: {
@@ -99,7 +99,25 @@ async function createOrder(req, res) {
 
 async function editUser(req, res) {
     try {
-
+        const {newFirstName, newLastName, newPhone} = req.body;
+        const user = await User.findOne({phone: req.session.phone});
+        if (!/^\+\d{12}$/.test(newPhone)) {
+            return renderErrorPage(400, "Wrong phone format! Please enter your phone number like +380971234567.")(req, res);
+        }
+        if (user.firstName !== newFirstName) {
+            user.firstName = newFirstName;
+            req.session.firstName = newFirstName;
+        }
+        if (user.lastName !== newLastName) {
+            user.lastName = newLastName;
+            req.session.lastName = newLastName;
+        }
+        if (user.phone !== newPhone) {
+            user.phone = newPhone;
+            req.session.phone = newPhone;
+        }
+        await user.save();
+        req.session.save(() => res.redirect("back"));
     } catch (e) {
         console.log(e);
         return renderErrorPage(500, "500 Server Error")(req, res);
@@ -108,7 +126,20 @@ async function editUser(req, res) {
 
 async function changePassword(req, res) {
     try {
-
+        const {oldPassword, newPassword, newPassword2} = req.body;
+        const user = await User.findOne({phone: req.session.phone});
+        if (!bcrypt.compareSync(oldPassword, user.password)) {
+            return renderErrorPage(400, "Wrong old password!")(req, res);
+        }
+        if (newPassword !== newPassword2) {
+            return renderErrorPage(400, "Passwords do not match!")(req, res);
+        }
+        if (newPassword.length < 5 || newPassword.length > 20) {
+            return renderErrorPage(400, "Passwords must be greater than 5 and less than 20 symbols!")(req, res);
+        }
+        user.password = bcrypt.hashSync(newPassword, 7);
+        await user.save();
+        res.redirect("back");
     } catch (e) {
         console.log(e);
         return renderErrorPage(500, "500 Server Error")(req, res);
@@ -121,11 +152,9 @@ async function signUp(req, res) {
 
         if (password !== password2) {
             return renderErrorPage(400, "Passwords don't match!")(req, res);
-
         }
         if (password.length < 5 || password.length > 20) {
             return renderErrorPage(400, "Passwords must be greater than 5 and less than 20 symbols!")(req, res);
-
         }
         if (!/^\+\d{12}$/.test(phone)) {
             return renderErrorPage(400, "Wrong phone format! Please enter your phone number like +380971234567.")(req, res);
@@ -140,8 +169,8 @@ async function signUp(req, res) {
         req.session.firstName = firstName;
         req.session.lastName = lastName;
         req.session.phone = phone;
-        req.session.id = user._id;
-        console.log(req.session.id);
+        req.session.userId = user._id;
+        console.log(req.session.userId);
         req.session.save(() => res.redirect("back"));
     } catch (e) {
         console.log(e);
@@ -149,7 +178,7 @@ async function signUp(req, res) {
     }
 }
 
-async function logIn (req, res) {
+async function logIn(req, res) {
     try {
         const {phone, password} = req.body;
         const user = await User.findOne({phone});
@@ -163,7 +192,7 @@ async function logIn (req, res) {
         req.session.firstName = user.firstName;
         req.session.lastName = user.lastName;
         req.session.phone = phone;
-        req.session.id = user._id;
+        req.session.userId = user._id;
         req.session.save(() => res.redirect("back"));
     } catch (e) {
         console.log(e);

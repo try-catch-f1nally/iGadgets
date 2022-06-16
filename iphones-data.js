@@ -150,36 +150,7 @@ const phones = [
                 "• Support for simultaneous display of multiple languages and character sets",
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
-        comments: [
-            {
-                authorName: "Alex",
-                date: "05/13/22",
-                userId: "",
-                rating: 5,
-                text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
-            },
-            {
-                authorName: "Martha",
-                date: "05/10/22",
-                userId: "",
-                rating: 5,
-                text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
-            },
-            {
-                authorName: "Helena",
-                date: "05/03/22",
-                userId: "",
-                rating: 5,
-                text: "Cool cameras, I take incredible photos on it! thank you)"
-            },
-            {
-                authorName: "Marina",
-                date: "17/01/22",
-                userId: "",
-                rating: 5,
-                text: "The camera is great, easy to use and a fast smartphone"
-            },
-        ],
+        comments: [],
         createdAt: new Date(Date.now() - 86400000),
     },
     {
@@ -256,36 +227,7 @@ const phones = [
                 "• Support for simultaneous display of multiple languages and character sets",
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
-        comments: [
-            {
-                authorName: "Alex",
-                date: "05/13/22",
-                userId: "",
-                rating: 4,
-                text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
-            },
-            {
-                authorName: "Martha",
-                date: "05/10/22",
-                userId: "",
-                rating: 4,
-                text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
-            },
-            {
-                authorName: "Helena",
-                date: "05/03/22",
-                userId: "",
-                rating: 4,
-                text: "Cool cameras, I take incredible photos on it! thank you)"
-            },
-            {
-                authorName: "Marina",
-                date: "17/01/22",
-                userId: "",
-                rating: 4,
-                text: "The camera is great, easy to use and a fast smartphone"
-            },
-        ],
+        comments: [],
         createdAt: new Date(Date.now() - 86400000),
     },
     {
@@ -360,36 +302,7 @@ const phones = [
                 "• Support for simultaneous display of multiple languages and character sets",
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
-        comments: [
-            {
-                authorName: "Alex",
-                date: "05/13/22",
-                userId: "",
-                rating: 2,
-                text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
-            },
-            {
-                authorName: "Martha",
-                date: "05/10/22",
-                userId: "",
-                rating: 3,
-                text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
-            },
-            {
-                authorName: "Helena",
-                date: "05/03/22",
-                userId: "",
-                rating: 3,
-                text: "Cool cameras, I take incredible photos on it! thank you)"
-            },
-            {
-                authorName: "Marina",
-                date: "17/01/22",
-                userId: "",
-                rating: 4,
-                text: "The camera is great, easy to use and a fast smartphone"
-            },
-        ],
+        comments: [],
         createdAt: new Date(Date.now() - 86400000),
     },
     {
@@ -464,36 +377,7 @@ const phones = [
                 "• Support for simultaneous display of multiple languages and character sets",
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
-        comments: [
-            {
-                authorName: "Alex",
-                date: "05/13/22",
-                userId: "",
-                rating: 4,
-                text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
-            },
-            {
-                authorName: "Martha",
-                date: "05/10/22",
-                userId: "",
-                rating: 4,
-                text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
-            },
-            {
-                authorName: "Helena",
-                date: "05/03/22",
-                userId: "",
-                rating: 5,
-                text: "Cool cameras, I take incredible photos on it! thank you)"
-            },
-            {
-                authorName: "Marina",
-                date: "17/01/22",
-                userId: "",
-                rating: 5,
-                text: "The camera is great, easy to use and a fast smartphone"
-            },
-        ],
+        comments: [],
         createdAt: new Date(Date.now() - 86400000),
     },
     {
@@ -568,36 +452,7 @@ const phones = [
                 "• Support for simultaneous display of multiple languages and character sets",
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
-        comments: [
-            {
-                authorName: "Alex",
-                date: "05/13/22",
-                userId: "",
-                rating: 4,
-                text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
-            },
-            {
-                authorName: "Martha",
-                date: "05/10/22",
-                userId: "",
-                rating: 4,
-                text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
-            },
-            {
-                authorName: "Helena",
-                date: "05/03/22",
-                userId: "",
-                rating: 5,
-                text: "Cool cameras, I take incredible photos on it! thank you)"
-            },
-            {
-                authorName: "Marina",
-                date: "17/01/22",
-                userId: "",
-                rating: 5,
-                text: "The camera is great, easy to use and a fast smartphone"
-            },
-        ],
+        comments: [],
         createdAt: new Date(Date.now() - 86400000),
     },
     {
@@ -904,36 +759,7 @@ const phones = [
                 "• Support for simultaneous display of multiple languages and character sets",
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
-        comments: [
-            {
-                authorName: "Alex",
-                date: "05/13/22",
-                userId: "",
-                rating: 5,
-                text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
-            },
-            {
-                authorName: "Martha",
-                date: "05/10/22",
-                userId: "",
-                rating: 5,
-                text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
-            },
-            {
-                authorName: "Helena",
-                date: "05/03/22",
-                userId: "",
-                rating: 5,
-                text: "Cool cameras, I take incredible photos on it! thank you)"
-            },
-            {
-                authorName: "Marina",
-                date: "17/01/22",
-                userId: "",
-                rating: 5,
-                text: "The camera is great, easy to use and a fast smartphone"
-            },
-        ],
+        comments: [],
         createdAt: new Date(Date.now()),
     },
     {
@@ -1091,36 +917,7 @@ const phones = [
                 "• Support for simultaneous display of multiple languages and character sets",
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
-        comments: [
-            {
-                authorName: "Alex",
-                date: "05/13/22",
-                userId: "",
-                rating: 4,
-                text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
-            },
-            {
-                authorName: "Martha",
-                date: "05/10/22",
-                userId: "",
-                rating: 4,
-                text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
-            },
-            {
-                authorName: "Helena",
-                date: "05/03/22",
-                userId: "",
-                rating: 5,
-                text: "Cool cameras, I take incredible photos on it! thank you)"
-            },
-            {
-                authorName: "Marina",
-                date: "17/01/22",
-                userId: "",
-                rating: 5,
-                text: "The camera is great, easy to use and a fast smartphone"
-            },
-        ],
+        comments: [],
         createdAt: new Date(Date.now()),
     },
     {
@@ -1199,36 +996,7 @@ const phones = [
                 "• Support for simultaneous display of multiple languages and character sets",
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
-        comments: [
-            {
-                authorName: "Alex",
-                date: "05/13/22",
-                userId: "",
-                rating: 5,
-                text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
-            },
-            {
-                authorName: "Martha",
-                date: "05/10/22",
-                userId: "",
-                rating: 5,
-                text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
-            },
-            {
-                authorName: "Helena",
-                date: "05/03/22",
-                userId: "",
-                rating: 5,
-                text: "Cool cameras, I take incredible photos on it! thank you)"
-            },
-            {
-                authorName: "Marina",
-                date: "17/01/22",
-                userId: "",
-                rating: 5,
-                text: "The camera is great, easy to use and a fast smartphone"
-            },
-        ],
+        comments: [],
         createdAt: new Date(Date.now() - 86400000),
     },
     {
@@ -3146,36 +2914,7 @@ const phones = [
                 "• Support for simultaneous display of multiple languages and character sets",
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
-        comments: [
-            {
-                authorName: "Alex",
-                date: "05/13/22",
-                userId: "",
-                rating: 2,
-                text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
-            },
-            {
-                authorName: "Martha",
-                date: "05/10/22",
-                userId: "",
-                rating: 3,
-                text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
-            },
-            {
-                authorName: "Helena",
-                date: "05/03/22",
-                userId: "",
-                rating: 3,
-                text: "Cool cameras, I take incredible photos on it! thank you)"
-            },
-            {
-                authorName: "Marina",
-                date: "17/01/22",
-                userId: "",
-                rating: 4,
-                text: "The camera is great, easy to use and a fast smartphone"
-            },
-        ],
+        comments: [],
         createdAt: new Date(Date.now() - 86400000),
     },
     {
@@ -3952,3 +3691,34 @@ const phones = [
 ];
 
 module.exports = {phones};
+
+// [
+//     {
+//         authorName: "Alex",
+//         date: "05/13/22",
+//         userId: "",
+//         rating: 5,
+//         text: "Some of the best phones I've seen. The screen is just a bomb, 120 Hz is just to steer! As for the store itself, the delivery is quite fast (it took 2 days), the prices seem to be ok, on a par with others. The guarantee is interesting, especially breaking the screen is not cheap, but changing the screen will be more expensive."
+//     },
+//     {
+//         authorName: "Martha",
+//         date: "05/10/22",
+//         userId: "",
+//         rating: 5,
+//         text: "At first it was unusual to switch from android, but now I'm very happy that I bought this phone)"
+//     },
+//     {
+//         authorName: "Helena",
+//         date: "05/03/22",
+//         userId: "",
+//         rating: 5,
+//         text: "Cool cameras, I take incredible photos on it! thank you)"
+//     },
+//     {
+//         authorName: "Marina",
+//         date: "17/01/22",
+//         userId: "",
+//         rating: 5,
+//         text: "The camera is great, easy to use and a fast smartphone"
+//     },
+// ],

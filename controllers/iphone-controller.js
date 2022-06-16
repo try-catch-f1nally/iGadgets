@@ -30,7 +30,7 @@ async function renderIPhonePage(req, res) {
         res.render("iphone", {
             title: name,
             firstName: req.session.firstName,
-            id: req.session.id,
+            id: req.session.userId,
             productsInCart: await getProductsInCart(req),
             images,
             name,

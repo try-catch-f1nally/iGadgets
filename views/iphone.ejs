@@ -393,9 +393,11 @@
         <h3>Reviews about <%= name %></h3>
         <hr class="my-2 my-sm-3">
         <div class="row">
-            <form id="feedback-form" class="col-12 col-lg-5 needs-validation" novalidate>
+            <form id="feedback-form" class="col-12 col-lg-5 needs-validation" method="post" action="/post-comment" novalidate>
+                <input hidden name="productId" value="<%= productId %>">
+                <input hidden name="userId" value="<%= (!firstName) ? '' : id%>">
                 <div class="d-flex align-items-center">
-                    <input type="text" placeholder="Name" class="form-control w-50 me-3" value="<%= firstName %>" required>
+                    <input type="text" name="authorName" placeholder="Name" class="form-control w-50 me-3" value="<%= firstName %>" required>
                     <div class="evaluation d-flex align-items-end fs-1 lh-1">
                         <div class="evaluation__body position-relative">
                             <div class="evaluation__active"></div>
@@ -410,18 +412,26 @@
                         <div class="evaluation__value ps-3">0</div>
                     </div>
                 </div>
-                <textarea class="form-control my-3" rows="7" required
+                <textarea class="form-control my-3" rows="7" required name="comment"
                           placeholder="Write a review about the purchase of this product"></textarea>
                 <button class="btn bg-primary fw-bold w-100">Send</button>
             </form>
             <div class="col-12 col-lg-7">
                 <% for (let comment of comments) { %>
-                    <article class="bg-dark rounded-1 my-3 p-4">
-                        <div class="fs-4 bi-people-fill">
-                            <span class="fs-3"><%= comment.authorName %></span><span
-                                    class="text-secondary fs-5"> - <%= comment.date %></span>
+                    <form class="bg-dark rounded-1 my-3 p-4" method="post" action="/delete-comment">
+                        <input name="productId" hidden value="<%= productId %>">
+                        <input name="commentId" hidden value="<%= comment._id %>">
+                        <div class="row">
+                            <div class="col">
+                                <div class="fs-4 bi-people-fill">
+                                    <span class="fs-3"><%= comment.authorName %></span><span
+                                            class="text-secondary fs-5"> - <%= comment.date %></span>
+                                </div>
+                            </div>
+                            <div class="col text-end">
+                                <button class="<%= (comment.userId === id) ? "" : "d-none" %> btn btn-danger bi-trash-fill"> Delete</button>
+                            </div>
                         </div>
-                        <button class="<%= (comment.userId === id) ? "" : "d-none" %> btn btn-danger bi-trash-fill"> Delete</button>
                         <div class="stars d-flex align-items-end fs-4 lh-1">
                             <div class="stars__body position-relative">
                                 <div class="stars__active"></div>
@@ -429,7 +439,7 @@
                             <div class="stars__value ms-2"><%= comment.rating %></div>
                         </div>
                         <p class="fs-5 mb-0 text-opacity-75"><%= comment.text %></p>
-                    </article>
+                    </form>
                 <% } %>
             </div>
         </div>

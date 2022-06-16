@@ -14,6 +14,7 @@ const iPhonesRoute = require("./routes/iphones-router");
 const iPhoneRoute = require("./routes/iphone-router");
 const userRoute = require("./routes/user-router");
 const cartRoute = require("./routes/cart-router");
+const commentRoute = require("./routes/comment-router");
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use(iPhonesRoute);
 app.use(iPhoneRoute);
 app.use(userRoute);
 app.use(cartRoute);
+app.use(commentRoute);
 app.use(renderErrorPage(404, "404 Not Found"));
 
 (async () => {
