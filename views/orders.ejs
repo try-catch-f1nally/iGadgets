@@ -35,7 +35,7 @@
                                         <h5 class="text-white bi-box-seam"> Delivery</h5>
                                         <div>"<%= order.delivery.service %>", <%= order.delivery.method %></div>
                                         <div><%= order.delivery.city %>,
-                                            <% if (department) { %>
+                                            <% if (order.delivery.department) { %>
                                                 Department #<%= order.delivery.department %>
                                             <% } else { %>
                                              <%= order.delivery.address %>

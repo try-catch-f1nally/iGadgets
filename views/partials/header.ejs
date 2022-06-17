@@ -4,17 +4,15 @@
             <div class="modal-content">
                 <form method="get" action="/search" class="input-group">
                     <button type="submit" class="btn bi-search fs-5"></button>
-                    <input type="text" name="keywords" class="form-control-lg border-0 flex-grow-1" placeholder="Search..." required>
+                    <input type="text" name="keywords" class="form-control-lg border-0 flex-grow-1"
+                           placeholder="Search..." required>
                     <button class="btn" type="button" data-bs-dismiss="modal"><i class="bi-x-lg"></i></button>
                 </form>
             </div>
         </div>
     </div>
 
-    <%
-    let total = 0;
-    if (firstName) {
-    %>
+    <% if (firstName) { %>
         <div class="modal fade" id="cart-modal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content bg-dark text-light">
@@ -22,43 +20,42 @@
                         <h5 class="modal-title">Shopping Cart</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>
-                    <div class="modal-body">
-                        <% if (!productsInCart.length) { %>
-                            <br>
-                            <h4>The shopping cart is empty :(</h4>
-                            <br>
-                        <% } else { %>
+                    <div id="cartBody" class="modal-body">
+                        <% if (productsInCart.length) { %>
                             <%
                             for (let i = 0; i < productsInCart.length; i++) {
-                                total += productsInCart[i].sum;
                             %>
-                            <div class="d-flex">
-                                <img width="140" src="/img/products/<%= productsInCart[i].image %>" alt=""
-                                     class="align-self-start me-1">
-                                <div class="d-flex flex-column justify-content-between w-100">
-                                    <div class="d-flex justify-content-between align-items-start">
-                                        <div>
-                                            <h5><%= productsInCart[i].name %></h5>
-                                            <small class="bg-secondary px-1">ART:<%= productsInCart[i].art %></small>
+                                <div class="d-flex productInCart">
+                                    <img width="140" src="/img/products/<%= productsInCart[i].image %>" alt=""
+                                         class="align-self-start me-1">
+                                    <div class="d-flex flex-column justify-content-between w-100">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div>
+                                                <h5><%= productsInCart[i].name %></h5>
+                                                <small class="bg-secondary px-1">ART:<%= productsInCart[i].art %></small>
+                                            </div>
+                                            <button data-product-id="<%= productsInCart[i].id %>"
+                                                    class="btn text-danger text-opacity-75 fs-5 lh-0 p-0 ps-1 pb-1 bi-trash3 deleteProductInCart"
+                                                    type="button">
+                                            </button>
                                         </div>
-                                        <button class="btn text-danger text-opacity-75 fs-5 lh-0 p-0 ps-1 pb-1"
-                                                type="button">
-                                            <i class="bi-trash3"></i>
-                                        </button>
-                                    </div>
-                                    <div class="d-flex justify-content-end align-items-baseline  mt-2 mb-sm-2">
-                                        <button class="btn btn-outline-primary lh-0 p-2 disabled">
-                                            <i class="bi-dash-lg"></i>
-                                        </button>
-                                        <div class="mx-2 mx-sm-3 fs-4"><%= productsInCart[i].amount %></div>
-                                        <button class="btn btn-outline-primary lh-0 p-2">
-                                            <i class="bi-plus-lg"></i>
-                                        </button>
-                                        <div class="fs-4 ms-3 ms-sm-4">$ <%= productsInCart[i].sum %></div>
+                                        <div class="d-flex justify-content-end align-items-baseline  mt-2 mb-sm-2">
+                                            <button data-product-id="<%= productsInCart[i].id %>"
+                                                    data-product-price="<%= productsInCart[i].price %>"
+                                                    class="btn btn-outline-primary lh-0 p-2 bi-dash-lg decreaseAmount <%= productsInCart[i].amount === 1 ? "disabled" : "" %>">
+                                            </button>
+                                            <div class="mx-2 mx-sm-3 fs-4 productAmount"><%= productsInCart[i].amount %></div>
+                                            <button data-product-id="<%= productsInCart[i].id %>"
+                                                    data-product-price="<%= productsInCart[i].price %>"
+                                                    class="btn btn-outline-primary lh-0 p-2 bi-plus-lg increaseAmount">
+                                            </button>
+                                            <div class="fs-4 ms-3 ms-sm-4">$ <span class="productSum">
+                                                    <%= productsInCart[i].sum %>
+                                                </span></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <%- (i !== productsInCart.length - 1) ? "<hr>" : "" %>
+                                <%- (i !== productsInCart.length - 1) ? "<hr>" : "" %>
                             <% } %>
                         <% } %>
                     </div>
@@ -66,9 +63,9 @@
                         <div class="d-flex flex-column w-100">
                             <div class="d-flex justify-content-between fs-4">
                                 <span>Total:</span>
-                                <span>$ <%= total %></span>
+                                <span>$ <span id="cartTotalSum"></span></span>
                             </div>
-                            <a href="/user/create-order"
+                            <a href="/user/create-order" id="createOrder"
                                class="btn btn-primary fs-5 fw-bold mt-2 <%= productsInCart.length ? "" : "disabled" %>">
                                 Create order
                             </a>
@@ -262,7 +259,9 @@
                         <% if (firstName) { %>
                             <a href="#cart-modal" class="text-primary mx-2 position-relative" data-bs-toggle="modal">
                                 <i class="bi-cart fs-4"></i>
-                                <span class="position-absolute top-50 start-50 translate-y badge rounded-pill bg-light text-dark"><%= productsInCart.length %></span>
+                                <span class="position-absolute top-50 start-50 translate-y badge rounded-pill bg-light text-dark amountIndicator">
+                                    <%= productsInCart.length %>
+                                </span>
                             </a>
                             <div class="dropdown">
                                 <button type="button" data-bs-toggle="dropdown"
@@ -270,9 +269,11 @@
                                     <%= firstName %>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-dark mt-1 py-1">
-                                    <li><a href="/user/orders" class="dropdown-item"><i class="bi-bag-check"></i> My orders</a>
+                                    <li><a href="/user/orders" class="dropdown-item"><i class="bi-bag-check"></i> My
+                                            orders</a>
                                     </li>
-                                    <li><a href="/user/settings" class="dropdown-item"><i class="bi-sliders"></i> Settings</a></li>
+                                    <li><a href="/user/settings" class="dropdown-item"><i class="bi-sliders"></i>
+                                            Settings</a></li>
                                     <li>
                                         <hr class="dropdown-divider my-1">
                                     </li>

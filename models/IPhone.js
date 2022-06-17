@@ -78,6 +78,9 @@ const IPhone = new Schema({
         rating: Number,
         text: String,
     }],
+    saleStartDate: {
+        type: String, required: true
+    }
 });
 
 module.exports = model("IPhone", IPhone);

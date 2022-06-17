@@ -16,8 +16,16 @@ const User = new Schema({
     orders: [
         {
             number: Number,
+            date: String,
             products: [
-                String
+                {
+                    img: String,
+                    name: String,
+                    art: Number,
+                    price: Number,
+                    amount: Number,
+                    sum: Number,
+                }
             ],
             totalAmount: Number,
             status: String,
@@ -27,9 +35,11 @@ const User = new Schema({
                 phone: String
             },
             delivery: {
-                serviceName: String,
+                service: String,
                 method: String,
-                address: String
+                city: String,
+                department: String,
+                address: String,
             },
             payment: String,
         }

@@ -30,7 +30,7 @@ async function getProducts(models, memories, colors, sort) {
     if (sort === "asc") sortFilter.price = 1;
     if (sort === "desc") sortFilter.price = -1;
     if (sort === "top") sortFilter.rating = -1;
-    if (sort === "newest") sortFilter.createdAt = -1;
+    if (sort === "newest") sortFilter.saleStartDate = -1;
 
     return IPhone.find(query).sort(sortFilter);
 }

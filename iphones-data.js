@@ -14,7 +14,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "midnight",
         colors: ["green", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
@@ -74,7 +75,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -91,7 +92,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "midnight",
         colors: ["green", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
@@ -151,7 +153,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -168,7 +170,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "midnight",
         colors: ["green", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
@@ -228,7 +231,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -243,7 +246,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "green",
         colors: ["green", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
@@ -303,7 +307,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -318,7 +322,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "green",
         colors: ["green", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
@@ -378,7 +383,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -393,7 +398,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "green",
         colors: ["green", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
@@ -453,7 +459,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -469,7 +475,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "starlight",
         colors: ["green", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
@@ -529,7 +536,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -545,7 +552,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "starlight",
         colors: ["green", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
@@ -605,7 +613,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -621,7 +629,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "starlight",
         colors: ["green", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 is an amazing new product in 2021",
@@ -681,7 +690,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -699,7 +708,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "silver",
         colors: ["silver"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 Pro - a symbiosis of reliability and elegance",
@@ -760,7 +770,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now()),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -778,7 +788,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "silver",
         colors: ["silver", "graphite"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 Pro - a symbiosis of reliability and elegance",
@@ -839,7 +850,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now()),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -857,7 +868,8 @@ const phones = [
         memories: [128, 256, 512],
         color: "silver",
         colors: ["silver", "graphite"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 Pro - a symbiosis of reliability and elegance",
@@ -918,7 +930,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now()),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -936,7 +948,8 @@ const phones = [
         memories: [256, 512],
         color: "graphite",
         colors: ["silver", "graphite"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 Pro - a symbiosis of reliability and elegance",
@@ -997,7 +1010,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -1015,7 +1028,8 @@ const phones = [
         memories: [256, 512],
         color: "graphite",
         colors: ["silver", "graphite"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 Pro - a symbiosis of reliability and elegance",
@@ -1076,7 +1090,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -1094,7 +1108,8 @@ const phones = [
         memories: [256, 512],
         color: "sierraBlue",
         colors: ["sierraBlue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 Pro Max - the greatness of modern technology",
@@ -1158,7 +1173,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now()),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -1176,7 +1191,8 @@ const phones = [
         memories: [256, 512],
         color: "sierraBlue",
         colors: ["sierraBlue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 Pro Max - the greatness of modern technology",
@@ -1240,7 +1256,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now()),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -1256,7 +1272,8 @@ const phones = [
         memories: [256],
         color: "pacificBlue",
         colors: ["pacificBlue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Is it worth buying an iPhone 12 Pro?",
@@ -1317,7 +1334,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2020, 9, 30).toISOString()
     },
     {
         images: [
@@ -1332,7 +1349,8 @@ const phones = [
         memories: [256],
         color: "graphite",
         colors: ["graphite"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Is it worth buying an iPhone 12 Pro?",
@@ -1393,7 +1411,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2020, 9, 30).toISOString()
     },
     {
         images: [
@@ -1409,7 +1427,8 @@ const phones = [
         memories: [64],
         color: "black",
         colors: ["black", "white"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone SE 2020",
@@ -1470,7 +1489,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2020, 2, 24).toISOString()
     },
     {
         images: [
@@ -1486,7 +1505,8 @@ const phones = [
         memories: [64],
         color: "white",
         colors: ["black", "white"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone SE 2020",
@@ -1547,7 +1567,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2020, 2, 24).toISOString()
     },
     {
         images: [
@@ -1562,7 +1582,8 @@ const phones = [
         memories: [64, 128],
         color: "starlight",
         colors: ["starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone SE 2020",
@@ -1623,7 +1644,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 8640000),
+        saleStartDate: new Date(2020, 2, 18).toISOString()
     },
     {
         images: [
@@ -1638,7 +1659,8 @@ const phones = [
         memories: [64, 128],
         color: "starlight",
         colors: ["red", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone SE 2020",
@@ -1699,7 +1721,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2020, 2, 18).toISOString()
     },
     {
         images: [
@@ -1714,7 +1736,8 @@ const phones = [
         memories: [128],
         color: "red",
         colors: ["red", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone SE 2020",
@@ -1775,7 +1798,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now()),
+        saleStartDate: new Date(2020, 2, 18).toISOString()
     },
     {
         images: [
@@ -1790,7 +1813,8 @@ const phones = [
         memories: [128],
         color: "midnight",
         colors: ["red", "midnight", "starlight"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone SE 2020",
@@ -1851,7 +1875,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now()),
+        saleStartDate: new Date(2020, 2, 18).toISOString()
     },
     {
         images: [
@@ -1866,7 +1890,8 @@ const phones = [
         memories: [64, 128],
         color: "black",
         colors: ["black", "white", "red", "purple"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 11 - a step towards the future",
@@ -1927,7 +1952,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2019, 8, 20).toISOString()
     },
     {
         images: [
@@ -1942,7 +1967,8 @@ const phones = [
         memories: [64, 128],
         color: "black",
         colors: ["black", "white", "red", "purple"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 11 - a step towards the future",
@@ -2003,7 +2029,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2019, 8, 20).toISOString()
     },
     {
         images: [
@@ -2018,7 +2044,8 @@ const phones = [
         memories: [64, 128],
         color: "white",
         colors: ["black", "white", "red", "purple"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 11 - a step towards the future",
@@ -2079,7 +2106,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2019, 8, 20).toISOString()
     },
     {
         images: [
@@ -2094,7 +2121,8 @@ const phones = [
         memories: [64, 128],
         color: "white",
         colors: ["black", "white", "red", "purple"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 11 - a step towards the future",
@@ -2155,7 +2183,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2019, 8, 20).toISOString()
     },
     {
         images: [
@@ -2170,7 +2198,8 @@ const phones = [
         memories: [64, 128],
         color: "red",
         colors: ["black", "white", "red", "purple"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 11 - a step towards the future",
@@ -2231,7 +2260,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2019, 8, 20).toISOString()
     },
     {
         images: [
@@ -2246,7 +2275,8 @@ const phones = [
         memories: [64, 128],
         color: "red",
         colors: ["black", "white", "red", "purple"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 11 - a step towards the future",
@@ -2307,7 +2337,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2019, 8, 20).toISOString()
     },
     {
         images: [
@@ -2321,7 +2351,8 @@ const phones = [
         memories: [64, 128],
         color: "purple",
         colors: ["black", "white", "red", "purple"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 11 - a step towards the future",
@@ -2382,7 +2413,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2019, 8, 20).toISOString()
     },
     {
         images: [
@@ -2396,7 +2427,8 @@ const phones = [
         memories: [64, 128],
         color: "purple",
         colors: ["black", "white", "red", "purple"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 11 - a step towards the future",
@@ -2457,7 +2489,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 172800000),
+        saleStartDate: new Date(2019, 8, 20).toISOString()
     },
     {
         images: [
@@ -2472,7 +2504,8 @@ const phones = [
         memories: [64, 128],
         color: "black",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -2533,7 +2566,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -2548,7 +2581,8 @@ const phones = [
         memories: [64, 128],
         color: "black",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -2609,7 +2643,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -2624,7 +2658,8 @@ const phones = [
         memories: [64, 128],
         color: "white",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -2685,7 +2720,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -2700,7 +2735,8 @@ const phones = [
         memories: [64, 128],
         color: "white",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -2761,7 +2797,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -2777,7 +2813,8 @@ const phones = [
         memories: [64, 128],
         color: "red",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -2838,7 +2875,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -2854,7 +2891,8 @@ const phones = [
         memories: [64, 128],
         color: "red",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -2915,7 +2953,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -2930,7 +2968,8 @@ const phones = [
         memories: [64, 128],
         color: "yellow",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -2991,7 +3030,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -3006,7 +3045,8 @@ const phones = [
         memories: [64, 128],
         color: "yellow",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -3067,7 +3107,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -3083,7 +3123,8 @@ const phones = [
         memories: [64, 128],
         color: "blue",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -3144,7 +3185,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -3160,7 +3201,8 @@ const phones = [
         memories: [64, 128],
         color: "blue",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -3221,7 +3263,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -3237,7 +3279,8 @@ const phones = [
         memories: [64, 128],
         color: "blue",
         colors: ["black", "white", "red", "yellow", "blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "iPhone XR - Your ticket to the world of frameless phones!",
@@ -3298,7 +3341,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2018, 8, 20).toISOString()
     },
     {
         images: [
@@ -3315,7 +3358,8 @@ const phones = [
         memories: [256],
         color: "pink",
         colors: ["pink"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 mini - compact and powerful",
@@ -3376,7 +3420,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -3393,7 +3437,8 @@ const phones = [
         memories: [512],
         color: "blue",
         colors: ["blue"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Apple iPhone 13 mini - compact and powerful",
@@ -3454,7 +3499,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2021, 8, 24).toISOString()
     },
     {
         images: [
@@ -3471,7 +3516,8 @@ const phones = [
         memories: [128],
         color: "purple",
         colors: ["purple"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Is it worth buying an iPhone 12 mini?",
@@ -3532,7 +3578,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2020, 9, 30).toISOString()
     },
     {
         images: [
@@ -3548,7 +3594,8 @@ const phones = [
         memories: [64],
         color: "black",
         colors: ["black", "white"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Why buy an iPhone 12?",
@@ -3609,7 +3656,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2020, 9, 30).toISOString()
     },
     {
         images: [
@@ -3625,7 +3672,8 @@ const phones = [
         memories: [64],
         color: "white",
         colors: ["black", "white"],
-        isAvailable: true, art: 2394822921,
+        isAvailable: true,
+        art: 2394822921,
         rating: 0,
         description: {
             header: "Why buy an iPhone 12?",
@@ -3686,7 +3734,7 @@ const phones = [
             protection: "IP68 rating according to IEC 60529 (immersion in water up to 6 meters for up to 30 minutes is allowed)"
         },
         comments: [],
-        createdAt: new Date(Date.now() - 86400000),
+        saleStartDate: new Date(2020, 9, 30).toISOString()
     },
 ];
 

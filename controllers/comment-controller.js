@@ -17,7 +17,7 @@ async function postComment(req, res) {
             authorName: name,
             date: new Date().toLocaleDateString("en-GB"),
             userId: userId,
-            rating: rating,
+            rating: +rating,
             text: text
         });
         await iPhone.save();
@@ -37,7 +37,7 @@ async function deleteComment(req, res) {
         const commentIndex = iPhone.comments.map(element => element._id.toString()).indexOf(commentId);
         iPhone.comments.splice(commentIndex, 1);
         await iPhone.save();
-        await refreshRating(IPhone);
+        await refreshRating(iPhone);
         res.redirect('back');
     } catch (e) {
         console.log(e);
@@ -46,10 +46,12 @@ async function deleteComment(req, res) {
 }
 
 async function refreshRating(product) {
-    const average = product.comments
-        .map(element => element.rating)
-        .reduce((sum, res) => sum + res, 0) / product.comments.length;
-    product.rating = average.toFixed(2);
+    const average = product.comments.length ?
+        (product.comments
+            .map(element => element.rating)
+            .reduce((sum, res) => sum + res, 0) / product.comments.length)
+        : 0;
+    product.rating = +average.toFixed(2);
     await product.save();
 }
 

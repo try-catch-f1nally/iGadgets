@@ -4,7 +4,9 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 
 async function getOrders(req) {
-    return (await User.findOne({phone: req.session.phone})).orders;
+    return (await User.findOne({phone: req.session.phone}))
+        .orders
+        .sort((order1, order2) => order2.date.localeCompare(order1.date));
 }
 
 async function renderUserEditPage(req, res) {
@@ -63,33 +65,50 @@ async function createOrder(req, res) {
             city,
             department,
             address,
-            payment
+            payment,
+            total
         } = req.body;
-
-        const user = await User
-            .findOneAndUpdate(
-                {phone: req.session.phone},
-                {
-                    $push: {
-                        orders: {
-                            number: 1,
-                            products: ["1", "2"],
-                            totalAmount: 5,
-                            status: "Pending dispatch",
-                            waybill: "IG1293481010",
-                            recipient: {
-                                fullName: recipientFirstName + " " + recipientLastName,
-                                phone: recipientPhone
-                            },
-                            delivery: {
-                                serviceName: deliveryService,
-                                method: deliveryMethod,
-                                address: city + address + " " + department
-                            },
-                            payment: payment,
-                        }
+        const products = [];
+        const productsInCart = await getProductsInCart(req);
+        console.log(productsInCart);
+        productsInCart.forEach(item => {
+            products.push({
+                id: item._id,
+                img: item.image,
+                name: item.name,
+                art: item.art,
+                price: item.price,
+                amount: item.amount,
+                sum: item.sum,
+            });
+        });
+        const number = ((await User.findOne({phone: req.session.phone})).orders).length;
+        await User.findOneAndUpdate(
+            {phone: req.session.phone},
+            {
+                $push: {
+                    orders: {
+                        number: number + 1,
+                        date: new Date().toISOString().split("T")[0],
+                        products: products,
+                        totalAmount: total,
+                        status: "Pending dispatch",
+                        waybill: "-",
+                        recipient: {
+                            fullName: recipientFirstName + " " + recipientLastName,
+                            phone: recipientPhone
+                        },
+                        delivery: {
+                            service: deliveryService,
+                            method: deliveryMethod,
+                            city: city,
+                            department: (department === undefined) ? "" : department,
+                            address: address,
+                        },
+                        payment: payment
                     }
-                });
+                }
+            });
         res.redirect("/user/orders");
     } catch (e) {
         console.log(e);

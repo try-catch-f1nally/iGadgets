@@ -1,16 +1,23 @@
 const IPhone = require("../models/IPhone");
 
-function addToCart(req, res) {
+function changeProductsInCart(req, res) {
     if (req.session.firstName) {
         const cookiesCart = (req.cookies.cart) ? JSON.parse(req.cookies.cart) : [];
-        console.log(cookiesCart);
-        for (let cookiePart of cookiesCart) {
-            if (cookiePart.productId === req.body.productId) {
-                cookiePart.amount = req.body.amount;
+        let idWasFind = false;
+        for (let i = 0; i < cookiesCart.length; i++) {
+            if (cookiesCart[i].productId === req.body.productId) {
+                if (req.body.amount === 0) {
+                    cookiesCart.splice(i, 1);
+                } else {
+                    cookiesCart[i].amount = req.body.amount;
+                }
+                idWasFind = true;
                 break;
             }
         }
-        console.log(cookiesCart);
+        if (!idWasFind) {
+            cookiesCart.push(req.body);
+        }
         res.cookie('cart', JSON.stringify(cookiesCart));
         res.redirect("back");
     }
@@ -22,11 +29,10 @@ async function getProductsInCart(req) {
     cookie.forEach(item => cookieMap.set(item.productId, item.amount));
 
     const productsId = (req.cookies.cart) ? JSON.parse(req.cookies.cart).map(item => item.productId) : [];
-    // console.log(productsId)
     const products = (productsId.length) ? Array.from((await IPhone.find({_id: productsId}))) : [];
-
     const productsInCart = [];
     products.forEach(product => productsInCart.push({
+        id: product._id.toString(),
         image: product.images[0],
         name: product.name,
         art: product.art,
@@ -37,8 +43,4 @@ async function getProductsInCart(req) {
     return productsInCart;
 }
 
-function removeFromCart(req, res) {
-
-}
-
-module.exports = {addToCart, getProductsInCart, removeFromCart};
+module.exports = {changeProductsInCart, getProductsInCart};

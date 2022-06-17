@@ -189,11 +189,13 @@
                     <hr>
                     <div class="row">
                         <div class="col-12 col-sm-6 my-1">
-                            <button class="btn btn-light w-100 fw-bold <%= isAvailable ? "" : "disabled" %>">Quick buy</button>
+                            <button class="btn btn-light w-100 fw-bold <%= isAvailable ? "" : "disabled" %>">Quick buy
+                            </button>
                         </div>
                         <div class="col-12 col-sm-6 my-1">
                             <button class="btn btn-primary w-100 fw-bold <%= isAvailable ? "" : "disabled" %>" id="buy"
-                            data-product-id="<%= productId %>">Buy now</button>
+                                    data-product-id="<%= productId %>">Buy now
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -393,11 +395,13 @@
         <h3>Reviews about <%= name %></h3>
         <hr class="my-2 my-sm-3">
         <div class="row">
-            <form id="feedback-form" class="col-12 col-lg-5 needs-validation" method="post" action="/post-comment" novalidate>
+            <form id="feedback-form" class="col-12 col-lg-5 needs-validation" method="post" action="/post-comment"
+                  novalidate>
                 <input hidden name="productId" value="<%= productId %>">
-                <input hidden name="userId" value="<%= (!firstName) ? '' : id%>">
+                <input hidden name="userId" value="<%= (!firstName) ? '' : id %>">
                 <div class="d-flex align-items-center">
-                    <input type="text" name="authorName" placeholder="Name" class="form-control w-50 me-3" value="<%= firstName %>" required>
+                    <input type="text" name="authorName" placeholder="Name" class="form-control w-50 me-3"
+                           value="<%= firstName %>" required>
                     <div class="evaluation d-flex align-items-end fs-1 lh-1">
                         <div class="evaluation__body position-relative">
                             <div class="evaluation__active"></div>
@@ -429,7 +433,9 @@
                                 </div>
                             </div>
                             <div class="col text-end">
-                                <button class="<%= (comment.userId === id) ? "" : "d-none" %> btn btn-danger bi-trash-fill"> Delete</button>
+                                <button class="<%= (comment.userId === id) ? "" : "d-none" %> btn btn-danger bi-trash-fill">
+                                    Delete
+                                </button>
                             </div>
                         </div>
                         <div class="stars d-flex align-items-end fs-4 lh-1">
@@ -518,7 +524,7 @@
 
     const reviewAmount = allRates.length;
 
-    let rateAmounts = {"5" : 0, "4" : 0, "3" : 0, "2" : 0, "1" : 0};
+    let rateAmounts = {"5": 0, "4": 0, "3": 0, "2": 0, "1": 0};
 
     for (let element of allRates) {
         rateAmounts[element.innerHTML]++;
@@ -578,28 +584,17 @@
     }
 </script>
 <script>
-    const buyButton = document.querySelector('#buy');
-    const cartAlert = document.querySelector('.alert');
-
-    buyButton.addEventListener('click', () => {
-        cartAlert.classList.remove('visually-hidden');
-        cartAlert.classList.remove('opacity-0');
-        setTimeout(() => {
-            cartAlert.classList.add('opacity-0');
-            setTimeout(() => {
-                cartAlert.classList.add('visually-hidden');
-            }, 150);
-        }, 10000);
+    document.querySelector("#buy").addEventListener('click', (event) => {
         fetch('/add-to-cart', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                productId: buyButton.dataset.productId,
+                productId: event.currentTarget.dataset.productId,
                 amount: 1
             })
-        });
+        }).then(location.reload());
     });
 </script>
 </body>

@@ -7,7 +7,7 @@ async function getTopRatingProducts() {
 }
 
 async function getLatestProducts() {
-    return IPhone.find().sort({createdAt: -1, name: 1}).limit(10);
+    return IPhone.find().sort({saleStartDate: -1, name: 1}).limit(10);
 }
 
 async function renderHomePage(req, res) {
