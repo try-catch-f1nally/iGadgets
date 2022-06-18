@@ -59,7 +59,7 @@
                                             <% for (let i = 0; i < order.products.length; i++) { %>
                                                 <div class="d-flex">
                                                     <img class="align-self-start me-1" width="140"
-                                                         src="/img/products/<%= order.products[i].img %>"
+                                                         src="/img/products/<%= order.products[i].image %>"
                                                          alt="">
                                                     <div class="d-flex flex-column w-100">
                                                         <div class="mb-1">
@@ -108,7 +108,7 @@
                                 <span class="text-muted fs-6"><%= order.products.length + (order.products.length === 1 ? " product" : " products") %></span>
                                 <div class="d-flex flex-wrap products-images products-images">
                                     <% for (let product of order.products) { %>
-                                        <img src="/img/products/<%= product.img %>" width="70" alt="">
+                                        <img src="/img/products/<%= product.image %>" width="70" alt="">
                                     <% } %>
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("partials/head", {title: title}); %>
+<%- include("partials/head", {title: name}); %>
 <body class="d-flex flex-column bg-black text-light">
 <%- include("partials/header"); %>
 
@@ -26,16 +26,14 @@
                 <div class="col-12 col-lg-6">
                     <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0"
-                                    class="active"></button>
-                            <% for (let i = 1; i < images.length; i++) { %>
-                                <button type="button" data-bs-target="#productCarousel"
-                                        data-bs-slide-to="<%= i %>"></button>
+                            <% for (let i = 0; i < images.length; i++) { %>
+                                <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="<%= i %>"
+                                <%- i === 0 ? 'class="active"' : "" %>></button>
                             <% } %>
                         </div>
                         <div class="carousel-inner">
-                            <% for (let i = 1; i < images.length; i++) { %>
-                                <div class="carousel-item <%= (i === 1 ? "active" : "") %>">
+                            <% for (let i = 0; i < images.length; i++) { %>
+                                <div class="carousel-item <%= (i === 0 ? "active" : "") %>">
                                     <img src="img/products/<%= images[i] %>" class="d-block w-100" alt="">
                                 </div>
                             <% } %>
@@ -194,7 +192,7 @@
                         </div>
                         <div class="col-12 col-sm-6 my-1">
                             <button class="btn btn-primary w-100 fw-bold <%= isAvailable ? "" : "disabled" %>" id="buy"
-                                    data-product-id="<%= productId %>">Buy now
+                                    data-product-id="<%= _id %>">Buy now
                             </button>
                         </div>
                     </div>
@@ -397,7 +395,7 @@
         <div class="row">
             <form id="feedback-form" class="col-12 col-lg-5 needs-validation" method="post" action="/post-comment"
                   novalidate>
-                <input hidden name="productId" value="<%= productId %>">
+                <input hidden name="productId" value="<%= _id %>">
                 <input hidden name="userId" value="<%= (!firstName) ? '' : id %>">
                 <div class="d-flex align-items-center">
                     <input type="text" name="authorName" placeholder="Name" class="form-control w-50 me-3"
@@ -423,7 +421,7 @@
             <div class="col-12 col-lg-7">
                 <% for (let comment of comments) { %>
                     <form class="bg-dark rounded-1 my-3 p-4" method="post" action="/delete-comment">
-                        <input name="productId" hidden value="<%= productId %>">
+                        <input name="productId" hidden value="<%= _id %>">
                         <input name="commentId" hidden value="<%= comment._id %>">
                         <div class="row">
                             <div class="col">
@@ -433,7 +431,7 @@
                                 </div>
                             </div>
                             <div class="col text-end">
-                                <button class="<%= (comment.userId === id) ? "" : "d-none" %> btn btn-danger bi-trash-fill">
+                                <button class="<%= (comment.authorId === id) ? "" : "d-none" %> btn btn-danger bi-trash-fill">
                                     Delete
                                 </button>
                             </div>

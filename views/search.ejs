@@ -6,7 +6,7 @@
 
 <main class="flex-grow-1 container my-3 my-lg-4 text-light">
     <div class="row g-2 g-lg-3">
-        <nav class="col-12 col-lg-9 col-xl-9 order-0">
+        <nav class="col-12 col-lg-3">
             <ol class="breadcrumb p-2 mb-0">
                 <li class="breadcrumb-item"><a href="/" class="link-primary text-decoration-none">
                         <i class="bi-house-door"></i> Home</a>
@@ -14,11 +14,10 @@
                 <li class="breadcrumb-item text-light">Search products</li>
             </ol>
         </nav>
-        <div class="col-12 order-lg-2">
-            <h2>Search results for keywords "<%= keywords.join(" ") %>".</h2>
-            <hr class="my-2">
+        <div class="col-12 col-lg-9">
+            <h4 class="text-center text-lg-end mb-0">Search results for keywords "<%= keywords.join(" ") %>".</h4>
         </div>
-        <div class="col-12 col-lg-3 order-lg-3">
+        <div class="col-12 col-lg-3">
             <form action="" class="bg-dark rounder-1 p-4">
                 <div class="form-check mb-2">
                     <input type="checkbox" class="form-check-input rounded-1 me-3" id="iphones">
@@ -47,31 +46,8 @@
             </form>
             <input type="submit" hidden>
         </div>
-        <div class="col-12 col-lg-3 col-xl-3 order-lg-1">
-            <div class="dropdown">
-                <button class="btn bg-dark rounded-1 text-light w-100 dropdown-toggle bi-arrow-down-up shadow-none p-2 border-0 text-lg-end pe-lg-0"
-                        type="button" data-bs-toggle="dropdown" id="sort-btn"> Sort by:
-                    <span class="text-primary">
-                        <%= (sort === "newest" ? "Newest" : "") %>
-                        <%= (sort === "top" ? "Top Rating" : "") %>
-                        <%= (sort === "asc" ? "Price: Low - High" : "") %>
-                        <%= (sort === "desc" ? "Price: High - Low" : "") %>
-                    </span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end rounded-1">
-                    <li><a class="btn dropdown-item px-4 bi-calendar-range <%= (sort === "newest" ? "active" : "") %>"
-                           href="/search/newest/?keywords<%= keywords %>"> Newest</a></li>
-                    <li><a class="btn dropdown-item px-4 bi-star-fill <%= (sort === "top" ? "active" : "") %>"
-                           href="/search/top/?keywords<%= keywords %>"> Top Rating</a></li>
-                    <li><a class="btn dropdown-item px-4 bi-arrow-up-right <%= (sort === "asc" ? "active" : "") %>"
-                           href="/search/asc/?keywords<%= keywords %>"> Price: Low - High</a></li>
-                    <li><a class="btn dropdown-item px-4 bi-arrow-down-right <%= (sort === "desc" ? "active" : "") %>"
-                           href="/search/desc/?keywords<%= keywords %>"> Price: High - Low</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-12 col-lg-9 order-lg-4">
-            <div class="row g-2 g-lg-3 d-flex flex-wrap align-items-start">
+        <div class="col-12 col-lg-9">
+            <div class="row g-2 g-lg-3 d-flex flex-wrap align-items-stretch">
                 <%
                 if (products.length) {
                 for (let i = (page - 1) * 12; i < page * 12 && i < products.length; i++) {

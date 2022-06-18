@@ -9,13 +9,13 @@
         <div class="col-12 col-sm-5 col-lg-3">
             <nav class="nav flex-column bg-dark rounded-1 p-2 sticky-sm-top" style="top: 80px">
                 <h5 class="text-center m-0 p-2 border-bottom bi-person-fill"> <%= firstName + " " + lastName %></h5>
-                <a class="nav-link link-light bi-bag-check" href="/user/orders"> My orders</a>
+                <a class="nav-link link-light bi-bag-check" href="/orders"> My orders</a>
                 <a class="nav-link link-light bi-sliders fw-bold"> Account settings</a>
                 <a class="nav-link link-danger bi-box-arrow-right" href="/log-out"> Log Out</a>
             </nav>
         </div>
         <div class="col-12 col-sm-7 col-lg-5">
-            <form action="/user/edit-contacts" method="post" class="rounded-1 bg-dark p-3 needs-validation" novalidate>
+            <form action="/user/edit-contact-info" method="post" class="rounded-1 bg-dark p-3 needs-validation" novalidate>
                 <div class="mb-2 col">
                     <label for="firstname-input">First Name:<span class="text-danger">*</span></label>
                     <input class="form-control" type="text" id="firstname-input"

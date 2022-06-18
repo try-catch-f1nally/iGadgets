@@ -1,12 +1,24 @@
 const {renderErrorPage} = require("./error-controller");
 const {getProductsInCart} = require("./cart-controller");
+const IPhone = require("../models/IPhone");
 
-function getProductsByKeywords(keywords) {
-    const products = [];
-    //1. обратиться в базу данных, вытянуть все айфоны product.name
-    //2. проитерироваться по вытянутым айфонам и вычислить совпадения с ключевыми словами
-    //3. отсортировать по убыванию
-    return products;
+async function getProductsByKeywords(keywords) {
+    const iphones = await IPhone.find();
+    const map = new Map();
+    for (let iphone of iphones) {
+        const name = iphone.name.toLowerCase();
+        let matches = 0;
+        for (let keyword of keywords) {
+            if (name.includes(keyword)) {
+                matches++;
+            }
+        }
+        if (matches > 0) {
+            map.set(iphone, matches);
+        }
+    }
+    const sortedMap = new Map([...map].sort((a, b) => b[1] - a[1]));
+    return Array.from(sortedMap.keys());
 }
 
 async function renderSearchPage(req, res) {
@@ -14,7 +26,7 @@ async function renderSearchPage(req, res) {
     let page = +req.query.page || 1;
     let sort = req.params.sort || "newest";
 
-    const products = getProductsByKeywords(keywords);
+    const products = await getProductsByKeywords(keywords);
     const pages = Math.ceil(products.length / 12);
 
     try {

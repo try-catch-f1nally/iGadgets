@@ -2,10 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@trycatchfinally.sra77.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`
+const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const path = require("path");
-const session = require("express-session");
 const {renderErrorPage} = require("./controllers/error-controller");
 
 const homeRoute = require("./routes/home-router");
@@ -13,6 +13,8 @@ const searchRoute = require("./routes/search-router");
 const iPhonesRoute = require("./routes/iphones-router");
 const iPhoneRoute = require("./routes/iphone-router");
 const userRoute = require("./routes/user-router");
+const orderRoute = require("./routes/order-router");
+const authRoute = require("./routes/auth-router");
 const cartRoute = require("./routes/cart-router");
 const commentRoute = require("./routes/comment-router");
 
@@ -36,6 +38,8 @@ app.use(searchRoute);
 app.use(iPhonesRoute);
 app.use(iPhoneRoute);
 app.use(userRoute);
+app.use(orderRoute);
+app.use(authRoute);
 app.use(cartRoute);
 app.use(commentRoute);
 app.use(renderErrorPage(404, "404 Not Found"));

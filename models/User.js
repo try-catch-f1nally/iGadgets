@@ -19,7 +19,7 @@ const User = new Schema({
             date: String,
             products: [
                 {
-                    img: String,
+                    image: String,
                     name: String,
                     art: Number,
                     price: Number,

@@ -1,46 +1,49 @@
 const IPhone = require("../models/IPhone");
 
 function changeProductsInCart(req, res) {
-    if (req.session.firstName) {
-        const cookiesCart = (req.cookies.cart) ? JSON.parse(req.cookies.cart) : [];
-        let idWasFind = false;
-        for (let i = 0; i < cookiesCart.length; i++) {
-            if (cookiesCart[i].productId === req.body.productId) {
-                if (req.body.amount === 0) {
-                    cookiesCart.splice(i, 1);
-                } else {
-                    cookiesCart[i].amount = req.body.amount;
-                }
-                idWasFind = true;
-                break;
+    try {
+        if (req.session.firstName) {
+            const productsCart = req.cookies.cart ? JSON.parse(req.cookies.cart) : [];
+            const productIndex = productsCart.map(item => item.productId).indexOf(req.body.productId);
+
+            if (productIndex !== -1) {
+                productsCart.splice(productIndex, 1);
             }
+            if (req.body.amount !== 0) {
+                productsCart.push(req.body);
+            }
+
+            res.cookie('cart', JSON.stringify(productsCart));
+            res.redirect("back");
         }
-        if (!idWasFind) {
-            cookiesCart.push(req.body);
-        }
-        res.cookie('cart', JSON.stringify(cookiesCart));
-        res.redirect("back");
+    } catch (e) {
+        console.log(e);
     }
 }
 
 async function getProductsInCart(req) {
-    let cookie = (req.cookies.cart) ? JSON.parse(req.cookies.cart) : [];
-    const cookieMap = new Map();
-    cookie.forEach(item => cookieMap.set(item.productId, item.amount));
+    if (req.session.firstName) {
+        if (!req.cookies.cart) return [];
 
-    const productsId = (req.cookies.cart) ? JSON.parse(req.cookies.cart).map(item => item.productId) : [];
-    const products = (productsId.length) ? Array.from((await IPhone.find({_id: productsId}))) : [];
-    const productsInCart = [];
-    products.forEach(product => productsInCart.push({
-        id: product._id.toString(),
-        image: product.images[0],
-        name: product.name,
-        art: product.art,
-        price: product.price,
-        amount: cookieMap.get(product._id.toString()),
-        sum: +product.price * +cookieMap.get(product._id.toString())
-    }));
-    return productsInCart;
+        const productsCart = JSON.parse(req.cookies.cart);
+        const cookieMap = new Map();
+        productsCart.forEach(item => cookieMap.set(item.productId, item.amount));
+
+        const productsId = productsCart.map(item => item.productId);
+        const products = (productsId.length) ? Array.from((await IPhone.find({_id: productsId}))) : [];
+        const productsInCart = [];
+        products.forEach(product => productsInCart.push({
+            id: product._id.toString(),
+            image: product.images[0],
+            name: product.name,
+            art: product.art,
+            price: product.price,
+            amount: cookieMap.get(product._id.toString()),
+            sum: +product.price * +cookieMap.get(product._id.toString())
+        }));
+
+        return productsInCart;
+    }
 }
 
 module.exports = {changeProductsInCart, getProductsInCart};

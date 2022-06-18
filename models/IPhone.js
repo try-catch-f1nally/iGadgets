@@ -14,69 +14,69 @@ const IPhone = new Schema({
         type: String, required: true
     },
     memory: {
-        type: Number, required: true,
+        type: Number, required: true
     },
     memories: [
         Number
     ],
     color: {
-        type: String, required: true,
+        type: String, required: true
     },
     colors: [
         String
     ],
     isAvailable: {
-        type: Boolean, required: true,
+        type: Boolean, required: true
     },
     art: {
         type: Number, required: true
     },
     rating: {
-        type: Number,
+        type: Number, required: true
     },
     description: {
         header: {
-            type: String, required: true,
+            type: String, required: true
         },
         paragraph: {
-            type: String, required: true,
+            type: String, required: true
         },
         listHeader: {
-            type: String, required: true,
+            type: String, required: true
         },
         listItems: [
             String
         ],
     },
     videoLink: {
-        type: String,
+        type: String, required: true
     },
     characteristics: {
         version: {
-            type: String, required: true,
+            type: String, required: true
         },
         size: {
-            type: String, required: true,
+            type: String, required: true
         },
         cpu: {
-            type: String, required: true,
+            type: String, required: true
         },
         camera: {
-            type: String, required: true,
+            type: String, required: true
         },
         screen: {
-            type: String, required: true,
+            type: String, required: true
         },
         protection: {
-            type: String, required: true,
+            type: String, required: true
         },
     },
     comments: [{
+        authorId: String,
         authorName: String,
-        date: String,
-        userId: String,
         rating: Number,
         text: String,
+        date: String
     }],
     saleStartDate: {
         type: String, required: true
