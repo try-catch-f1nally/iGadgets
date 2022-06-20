@@ -4,7 +4,9 @@ function changeProductsInCart(req, res) {
     try {
         if (req.session.firstName) {
             const productsCart = req.cookies.cart ? JSON.parse(req.cookies.cart) : [];
-            const productIndex = productsCart.map(item => item.productId).indexOf(req.body.productId);
+            const productIndex = productsCart
+                .map(item => item.productId)
+                .indexOf(req.body.productId);
 
             if (productIndex !== -1) {
                 productsCart.splice(productIndex, 1);

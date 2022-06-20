@@ -1,11 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@trycatchfinally.sra77.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const path = require("path");
+const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@trycatchfinally.sra77.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`
 const {renderErrorPage} = require("./controllers/error-controller");
 
 const homeRoute = require("./routes/home-router");
@@ -47,7 +47,10 @@ app.use(renderErrorPage(404, "404 Not Found"));
 (async () => {
     try {
         await mongoose.connect(uri);
-        app.listen(process.env.PORT, () => console.log(`Server starts on port ${process.env.PORT}`));
+        app.listen(
+            process.env.PORT,
+            () => console.log(`Server starts on port ${process.env.PORT}`)
+        );
     } catch (e) {
         console.log(e);
     }

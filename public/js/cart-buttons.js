@@ -63,7 +63,7 @@ decreaseButtons.forEach(btn => btn.addEventListener("click", (event) => {
 }));
 
 function sendCookieProductInCart(body) {
-    fetch('/add-to-cart', {
+    fetch('/change-cart', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
